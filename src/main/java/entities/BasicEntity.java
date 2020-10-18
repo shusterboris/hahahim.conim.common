@@ -3,7 +3,7 @@ package entities;
 import java.time.LocalDateTime;
 
 public class BasicEntity {
-	private long id;
+	protected long id;
 	private LocalDateTime modified = LocalDateTime.now();
 	private int version = 1;
 	private boolean isDeleted = false;
