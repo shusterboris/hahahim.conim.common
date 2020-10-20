@@ -123,4 +123,8 @@ public class Person extends BasicEntity {
 	public void setUserType(UserType userType) {
 		this.userType = userType;
 	}
+
+	public String toString() {
+		return getLastName().concat(" ").concat(getFirstName());
+	}
 }

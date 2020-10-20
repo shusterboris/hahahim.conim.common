@@ -65,11 +65,19 @@ public class CatItem extends BasicEntity {
 
 	public CatItem(Long id, String key, String language, Long parentId, String value, Integer sortOrder) {
 		this(key, language, parentId, value, sortOrder);
-		this.parentId = id;
+		this.id = id;
+		this.parentId = parentId;
 	}
 
 	public CatItem(Long id, String key, String value, String language) {
 		this(key, language, (long) 0, value, 1000);
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return value.concat(" ,id:").concat(String.valueOf(id)).concat(", key:").concat(key).concat("_")
+				.concat(language).concat(", parent:".concat(String.valueOf(parentId)));
 	}
 
 }
