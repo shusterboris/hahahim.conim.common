@@ -177,13 +177,13 @@ public class MockService {
 
 	public void createRegions() {
 		List<CatItem> result = new ArrayList<CatItem>();
-		result.add(new CatItem(id++, "Country.Regions", "Северный", "RU"));
-		result.add(new CatItem(id++, "Country.Regions", "Южный", "RU"));
-		result.add(new CatItem(id++, "Country.Regions", "Хайфа", "RU"));
-		result.add(new CatItem(id++, "Country.Regions", "Центральный", "RU"));
-		result.add(new CatItem(id++, "Country.Regions", "Иудея и Самария", "RU"));
-		result.add(new CatItem(id++, "Country.Regions", "Тель-Авив", "RU"));
-		result.add(new CatItem(id++, "Country.Regions", "Иерусалим", "RU"));
+		result.add(new CatItem(id++, "Country.Regions", "РЎРµРІРµСЂРЅС‹Р№", "RU"));
+		result.add(new CatItem(id++, "Country.Regions", "Р®Р¶РЅС‹Р№", "RU"));
+		result.add(new CatItem(id++, "Country.Regions", "РҐР°Р№С„Р°", "RU"));
+		result.add(new CatItem(id++, "Country.Regions", "Р¦РµРЅС‚СЂР°Р»СЊРЅС‹Р№", "RU"));
+		result.add(new CatItem(id++, "Country.Regions", "РСѓРґРµСЏ Рё РЎР°РјР°СЂРёСЏ", "RU"));
+		result.add(new CatItem(id++, "Country.Regions", "РўРµР»СЊ-РђРІРёРІ", "RU"));
+		result.add(new CatItem(id++, "Country.Regions", "РРµСЂСѓСЃР°Р»РёРј", "RU"));
 		result.add(new CatItem(id++, "Country.Regions", "North", "EN"));
 		result.add(new CatItem(id++, "Country.Regions", "South", "EN"));
 		result.add(new CatItem(id++, "Country.Regions", "Haifa", "EN"));
@@ -198,31 +198,31 @@ public class MockService {
 	}
 
 	public void createSettlments() {
-		CatItem item = getCatByName("Country.Regions-Северный");
-		addToParent(item, "Regions.Settlments", "Кармиэль", "RU");
-		addToParent(getCatByName("Country.Regions-Северный"), "Regions.Settlments", "Кфар Манда", "RU");
-		addToParent(getCatByName("Country.Regions-Северный"), "Regions.Settlments", "Нацрат Элит", "RU");
+		CatItem item = getCatByName("Country.Regions-РЎРµРІРµСЂРЅС‹Р№");
+		addToParent(item, "Regions.Settlments", "РљР°СЂРјРёСЌР»СЊ", "RU");
+		addToParent(getCatByName("Country.Regions-РЎРµРІРµСЂРЅС‹Р№"), "Regions.Settlments", "РљС„Р°СЂ РњР°РЅРґР°", "RU");
+		addToParent(getCatByName("Country.Regions-РЎРµРІРµСЂРЅС‹Р№"), "Regions.Settlments", "РќР°С†СЂР°С‚ Р­Р»РёС‚", "RU");
 
-		addToParent(getCatByName("Country.Regions-Хайфа"), "Regions.Settlments", "Хайфа", "RU");
-		addToParent(getCatByName("Country.Regions-Хайфа"), "Regions.Settlments", "Нешер", "RU");
-		addToParent(getCatByName("Country.Regions-Хайфа"), "Regions.Settlments", "Крайот", "RU");
+		addToParent(getCatByName("Country.Regions-РҐР°Р№С„Р°"), "Regions.Settlments", "РҐР°Р№С„Р°", "RU");
+		addToParent(getCatByName("Country.Regions-РҐР°Р№С„Р°"), "Regions.Settlments", "РќРµС€РµСЂ", "RU");
+		addToParent(getCatByName("Country.Regions-РҐР°Р№С„Р°"), "Regions.Settlments", "РљСЂР°Р№РѕС‚", "RU");
 
-		addToParent(getCatByName("Country.Regions-Южный"), "Regions.Settlments", "Беэр-Шева", "RU");
-		addToParent(getCatByName("Country.Regions-Южный"), "Regions.Settlments", "Ришон-ле-Цион", "RU");
+		addToParent(getCatByName("Country.Regions-Р®Р¶РЅС‹Р№"), "Regions.Settlments", "Р‘РµСЌСЂ-РЁРµРІР°", "RU");
+		addToParent(getCatByName("Country.Regions-Р®Р¶РЅС‹Р№"), "Regions.Settlments", "Р РёС€РѕРЅ-Р»Рµ-Р¦РёРѕРЅ", "RU");
 
-		addToParent(getCatByName("Country.Regions-Центральный"), "Regions.Settlments", "Бат Ям", "RU");
-		addToParent(getCatByName("Country.Regions-Центральный"), "Regions.Settlments", "Герцлия", "RU");
-		addToParent(getCatByName("Country.Regions-Центральный"), "Regions.Settlments", "Кфар саба", "RU");
-		addToParent(getCatByName("Country.Regions-Центральный"), "Regions.Settlments", "Рамла", "RU");
+		addToParent(getCatByName("Country.Regions-Р¦РµРЅС‚СЂР°Р»СЊРЅС‹Р№"), "Regions.Settlments", "Р‘Р°С‚ РЇРј", "RU");
+		addToParent(getCatByName("Country.Regions-Р¦РµРЅС‚СЂР°Р»СЊРЅС‹Р№"), "Regions.Settlments", "Р“РµСЂС†Р»РёСЏ", "RU");
+		addToParent(getCatByName("Country.Regions-Р¦РµРЅС‚СЂР°Р»СЊРЅС‹Р№"), "Regions.Settlments", "РљС„Р°СЂ СЃР°Р±Р°", "RU");
+		addToParent(getCatByName("Country.Regions-Р¦РµРЅС‚СЂР°Р»СЊРЅС‹Р№"), "Regions.Settlments", "Р Р°РјР»Р°", "RU");
 
-		addToParent(getCatByName("Country.Regions-Иудея и Самария"), "Regions.Settlments", "Ариэль", "RU");
+		addToParent(getCatByName("Country.Regions-РСѓРґРµСЏ Рё РЎР°РјР°СЂРёСЏ"), "Regions.Settlments", "РђСЂРёСЌР»СЊ", "RU");
 
-		addToParent(getCatByName("Country.Regions-Иерусалим"), "Regions.Settlments", "Иерусалим", "RU");
-		addToParent(getCatByName("Country.Regions-Иерусалим"), "Regions.Settlments", "Бэйт Шемеш", "RU");
+		addToParent(getCatByName("Country.Regions-РРµСЂСѓСЃР°Р»РёРј"), "Regions.Settlments", "РРµСЂСѓСЃР°Р»РёРј", "RU");
+		addToParent(getCatByName("Country.Regions-РРµСЂСѓСЃР°Р»РёРј"), "Regions.Settlments", "Р‘СЌР№С‚ РЁРµРјРµС€", "RU");
 
-		addToParent(getCatByName("Country.Regions-Тель-Авив"), "Regions.Settlments", "Тель-Авив Савидор", "RU");
-		addToParent(getCatByName("Country.Regions-Тель-Авив"), "Regions.Settlments", "Питах Тиква", "RU");
-		addToParent(getCatByName("Country.Regions-Тель-Авив"), "Regions.Settlments", "Яффо", "RU");
+		addToParent(getCatByName("Country.Regions-РўРµР»СЊ-РђРІРёРІ"), "Regions.Settlments", "РўРµР»СЊ-РђРІРёРІ РЎР°РІРёРґРѕСЂ", "RU");
+		addToParent(getCatByName("Country.Regions-РўРµР»СЊ-РђРІРёРІ"), "Regions.Settlments", "РџРёС‚Р°С… РўРёРєРІР°", "RU");
+		addToParent(getCatByName("Country.Regions-РўРµР»СЊ-РђРІРёРІ"), "Regions.Settlments", "РЇС„С„Рѕ", "RU");
 
 		addToParent(getCatByName("Country.Regions-North"), "Regions.Settlments", "Karmiel", "EN");
 		addToParent(getCatByName("Country.Regions-North"), "Regions.Settlments", "Kfar Manda", "EN");
@@ -251,30 +251,30 @@ public class MockService {
 	}
 
 	private void createGoodsCategory() {
-		CatItem item = new CatItem(id++, "Goods.Category", "Продукты питания", "RU");
+		CatItem item = new CatItem(id++, "Goods.Category", "РџСЂРѕРґСѓРєС‚С‹ РїРёС‚Р°РЅРёСЏ", "RU");
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
-		addToParent(item, "Goods.Category", "Мясные продукты", "RU");
-		addToParent(item, "Goods.Category", "Овощи и фрукты", "RU");
-		addToParent(item, "Goods.Category", "Деликатесы", "RU");
-		addToParent(item, "Goods.Category", "Алкоголь", "RU");
+		addToParent(item, "Goods.Category", "РњСЏСЃРЅС‹Рµ РїСЂРѕРґСѓРєС‚С‹", "RU");
+		addToParent(item, "Goods.Category", "РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹", "RU");
+		addToParent(item, "Goods.Category", "Р”РµР»РёРєР°С‚РµСЃС‹", "RU");
+		addToParent(item, "Goods.Category", "РђР»РєРѕРіРѕР»СЊ", "RU");
 
-		item = new CatItem(id++, "Goods.Category", "Услуги", "RU");
+		item = new CatItem(id++, "Goods.Category", "РЈСЃР»СѓРіРё", "RU");
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
-		addToParent(item, "Goods.Category", "Обучение языкам", "RU");
-		addToParent(item, "Goods.Category", "Ремонт бытовой техники", "RU");
-		addToParent(item, "Goods.Category", "Стрижка", "RU");
+		addToParent(item, "Goods.Category", "РћР±СѓС‡РµРЅРёРµ СЏР·С‹РєР°Рј", "RU");
+		addToParent(item, "Goods.Category", "Р РµРјРѕРЅС‚ Р±С‹С‚РѕРІРѕР№ С‚РµС…РЅРёРєРё", "RU");
+		addToParent(item, "Goods.Category", "РЎС‚СЂРёР¶РєР°", "RU");
 
-		item = new CatItem(id++, "Goods.Category", "Электроника", "RU");
+		item = new CatItem(id++, "Goods.Category", "Р­Р»РµРєС‚СЂРѕРЅРёРєР°", "RU");
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
-		addToParent(item, "Goods.Category", "Музыка и звук", "RU");
-		addToParent(item, "Goods.Category", "Телевидение и компьютеры", "RU");
-		addToParent(item, "Goods.Category", "Мобильные устройства", "RU");
+		addToParent(item, "Goods.Category", "РњСѓР·С‹РєР° Рё Р·РІСѓРє", "RU");
+		addToParent(item, "Goods.Category", "РўРµР»РµРІРёРґРµРЅРёРµ Рё РєРѕРјРїСЊСЋС‚РµСЂС‹", "RU");
+		addToParent(item, "Goods.Category", "РњРѕР±РёР»СЊРЅС‹Рµ СѓСЃС‚СЂРѕР№СЃС‚РІР°", "RU");
 
-		item = new CatItem(id++, "Goods.Category", "Товары для дома", "RU");
+		item = new CatItem(id++, "Goods.Category", "РўРѕРІР°СЂС‹ РґР»СЏ РґРѕРјР°", "RU");
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
-		addToParent(item, "Goods.Category", "Кухни", "RU");
-		addToParent(item, "Goods.Category", "Спальни", "RU");
-		addToParent(item, "Goods.Category", "Службы", "RU");
+		addToParent(item, "Goods.Category", "РљСѓС…РЅРё", "RU");
+		addToParent(item, "Goods.Category", "РЎРїР°Р»СЊРЅРё", "RU");
+		addToParent(item, "Goods.Category", "РЎР»СѓР¶Р±С‹", "RU");
 		// ********************************************************
 		item = new CatItem(id++, "Goods.Category", "Food", "EN");
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
@@ -304,27 +304,27 @@ public class MockService {
 	}
 
 	public List<Member> createStaff() {
-		clients.add(createMember("Борис", "Шустер", Gender.MALE, UserType.SUPERVISOR, "boris", "nothing"));
-		clients.add(createMember("Инна", "Шустер", Gender.FEMALE, UserType.SUPERVISOR, "inna", "nothing"));
-		clients.add(createMember("Владимир", "Олевский", Gender.MALE, UserType.MODERATOR, "vlad", "nothing"));
-		clients.add(createMember("Хаим", "Шапошник", Gender.MALE, UserType.STACKHOLDER, "haim", "nothing"));
+		clients.add(createMember("Р‘РѕСЂРёСЃ", "РЁСѓСЃС‚РµСЂ", Gender.MALE, UserType.SUPERVISOR, "boris", "nothing"));
+		clients.add(createMember("РРЅРЅР°", "РЁСѓСЃС‚РµСЂ", Gender.FEMALE, UserType.SUPERVISOR, "inna", "nothing"));
+		clients.add(createMember("Р’Р»Р°РґРёРјРёСЂ", "РћР»РµРІСЃРєРёР№", Gender.MALE, UserType.MODERATOR, "vlad", "nothing"));
+		clients.add(createMember("РҐР°РёРј", "РЁР°РїРѕС€РЅРёРє", Gender.MALE, UserType.STACKHOLDER, "haim", "nothing"));
 		return clients;
 	}
 
 	public void createMembers() {
-		Member member = createMember("Рафаэль", "Шмок", Gender.MALE, UserType.MEMBER, "rafael", "nothing");
+		Member member = createMember("Р Р°С„Р°СЌР»СЊ", "РЁРјРѕРє", Gender.MALE, UserType.MEMBER, "rafael", "nothing");
 		member.setId(20000);
 		clients.add(member);
-		member = createMember("Терпила", "Ле-гун", Gender.FEMALE, UserType.MEMBER, "terpila", "nothing");
+		member = createMember("РўРµСЂРїРёР»Р°", "Р›Рµ-РіСѓРЅ", Gender.FEMALE, UserType.MEMBER, "terpila", "nothing");
 		member.setId(20001);
 		clients.add(member);
-		member = createMember("Зион", "Розенблюм", Gender.MALE, UserType.MEMBER, "zion", "nothing");
+		member = createMember("Р—РёРѕРЅ", "Р РѕР·РµРЅР±Р»СЋРј", Gender.MALE, UserType.MEMBER, "zion", "nothing");
 		member.setId(20002);
 		clients.add(member);
-		member = createMember("Хайлу", "Недвигу", Gender.MALE, UserType.MEMBER, "hailu", "nothing");
+		member = createMember("РҐР°Р№Р»Сѓ", "РќРµРґРІРёРіСѓ", Gender.MALE, UserType.MEMBER, "hailu", "nothing");
 		member.setId(20003);
 		clients.add(member);
-		member = createMember("Vasiliy", "Чапаев", Gender.MALE, UserType.MEMBER, "vasiliy", "nothing");
+		member = createMember("Vasiliy", "Р§Р°РїР°РµРІ", Gender.MALE, UserType.MEMBER, "vasiliy", "nothing");
 		member.setId(20004);
 		clients.add(member);
 
@@ -345,15 +345,15 @@ public class MockService {
 	}
 
 	private void createProposals() {
-		CatItem haifaReg = getCatByValue("Хайфа", "RU");
-		CatItem telavivReg = getCatByValue("Тель-Авив", "RU");
-		CatItem foodCat = getCatByValue("Продукты питания", "RU");
+		CatItem haifaReg = getCatByValue("РҐР°Р№С„Р°", "RU");
+		CatItem telavivReg = getCatByValue("РўРµР»СЊ-РђРІРёРІ", "RU");
+		CatItem foodCat = getCatByValue("РџСЂРѕРґСѓРєС‚С‹ РїРёС‚Р°РЅРёСЏ", "RU");
 		Map<String, String[]> productMap = new HashMap<>();
-		String[] ajectives = "тонкая,длинная,жирная,красная,черная,баклажанная,ароматная,сушеная,вяленная".split(",");
-		productMap.put("Деликатесы", "Икра,Лососина,Семга,Селедка,Кета".split(","));
-		productMap.put("Мясные продукты", "Свинина,Колбаса,Рыба,Говядина,Баранина".split(","));
-		productMap.put("Овощи и фрукты", "Вишня,Черешня,Клубника,Дыня,Слива,Груша,Оливка".split(","));
-		productMap.put("Алкоголь", "Водка,Текила,Малага,Настойка".split(","));
+		String[] ajectives = "С‚РѕРЅРєР°СЏ,РґР»РёРЅРЅР°СЏ,Р¶РёСЂРЅР°СЏ,РєСЂР°СЃРЅР°СЏ,С‡РµСЂРЅР°СЏ,Р±Р°РєР»Р°Р¶Р°РЅРЅР°СЏ,Р°СЂРѕРјР°С‚РЅР°СЏ,СЃСѓС€РµРЅР°СЏ,РІСЏР»РµРЅРЅР°СЏ".split(",");
+		productMap.put("Р”РµР»РёРєР°С‚РµСЃС‹", "РРєСЂР°,Р›РѕСЃРѕСЃРёРЅР°,РЎРµРјРіР°,РЎРµР»РµРґРєР°,РљРµС‚Р°".split(","));
+		productMap.put("РњСЏСЃРЅС‹Рµ РїСЂРѕРґСѓРєС‚С‹", "РЎРІРёРЅРёРЅР°,РљРѕР»Р±Р°СЃР°,Р С‹Р±Р°,Р“РѕРІСЏРґРёРЅР°,Р‘Р°СЂР°РЅРёРЅР°".split(","));
+		productMap.put("РћРІРѕС‰Рё Рё С„СЂСѓРєС‚С‹", "Р’РёС€РЅСЏ,Р§РµСЂРµС€РЅСЏ,РљР»СѓР±РЅРёРєР°,Р”С‹РЅСЏ,РЎР»РёРІР°,Р“СЂСѓС€Р°,РћР»РёРІРєР°".split(","));
+		productMap.put("РђР»РєРѕРіРѕР»СЊ", "Р’РѕРґРєР°,РўРµРєРёР»Р°,РњР°Р»Р°РіР°,РќР°СЃС‚РѕР№РєР°".split(","));
 
 		for (int i = 0; i < 20; i++) {
 			LocalDate dueDate = LocalDate.now();
@@ -363,11 +363,14 @@ public class MockService {
 			List<CatItem> cats = getRandomCategories(foodCat);
 			String[] lst = productMap.get(cats.get(1).getValue());
 			String name = lst[random.nextInt(lst.length - 1)] + " " + ajectives[random.nextInt(ajectives.length - 1)];
+			 
 			Proposal p = null;
 			if (i % 2 == 0)
 				p = new Proposal(id++, name, cats, haifaReg, author, randomPrice, dueDate);
 			else
 				p = new Proposal(id++, name, cats, telavivReg, author, randomPrice, dueDate);
+			p.setMaxPrice(random.nextFloat());
+			p.setStatus("ProposalStatus.PUBLISHED");
 			proposals.add(p);
 		}
 	}
