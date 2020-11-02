@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 import application.UserSettings;
 import entities.CatItem;
+import entities.ClientNotification;
 import entities.Member;
 import entities.Proposal;
 import entities.enums.ClientStatus;
@@ -159,6 +160,16 @@ public class MockService {
 				.stream().filter(mbr -> (mbr.getUserType() == UserType.SUPERVISOR
 						|| mbr.getUserType() == UserType.MODERATOR || mbr.getUserType() == UserType.STACKHOLDER))
 				.collect(Collectors.toList());
+	}
+	
+	public List<ClientNotification> getNotifications()
+	{
+		ArrayList<ClientNotification> notifList = new ArrayList<ClientNotification>();
+		
+		notifList.add(new ClientNotification("First title", "First text"));
+		notifList.add(new ClientNotification("Second title", "Second text"));
+		
+		return notifList;
 	}
 
 	private Member createMember(String name, String lastName, Gender gender, UserType user, String login,
