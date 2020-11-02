@@ -18,6 +18,8 @@ import entities.Proposal;
 import entities.enums.ClientStatus;
 import entities.enums.Gender;
 import entities.enums.UserType;
+import proxies.Person;
+import proxies.PriceProposal;
 
 public class MockService {
 	private Long id = (long) 10000;
@@ -26,6 +28,8 @@ public class MockService {
 	private Map<Long, CatItem> catById = new HashMap<Long, CatItem>();
 	List<Member> clients = new ArrayList<Member>();
 	List<Proposal> proposals = new ArrayList<>();
+	List<CatItem> measures = new ArrayList<>();
+	List<Proposal> actions = new ArrayList<>();
 	private Random random = new Random();
 
 	public List<CatItem> getCatsByCategory(String key, String language) {
@@ -139,6 +143,9 @@ public class MockService {
 	public List<Proposal> getProposals() {
 		return proposals;
 	}
+	public List<Proposal> getActions() {
+		return actions;
+	}
 
 	public void setProposals(List<Proposal> proposals) {
 		this.proposals = proposals;
@@ -160,6 +167,14 @@ public class MockService {
 				.stream().filter(mbr -> (mbr.getUserType() == UserType.SUPERVISOR
 						|| mbr.getUserType() == UserType.MODERATOR || mbr.getUserType() == UserType.STACKHOLDER))
 				.collect(Collectors.toList());
+	}
+
+	public Member getUser(String login, String pasword) {
+		return clients.stream()
+				.filter(mbr -> mbr.getLogin().equals(login) && 
+						mbr.getPassword().equals(pasword))
+				.findAny()
+				.orElse(null);		
 	}
 	
 	public List<ClientNotification> getNotifications()
@@ -206,6 +221,23 @@ public class MockService {
 			catByName.put("Country.Regions" + "-" + item.getValue(), item);
 			catById.put(item.getId(), item);
 		}
+	}
+	
+	private void createMeasures() {
+		measures.add(new CatItem(id++, "Measures", "кг", "RU"));
+		measures.add(new CatItem(id++, "Measures", "шт", "RU"));
+		measures.add(new CatItem(id++, "Measures", "100 г", "RU"));
+		measures.add(new CatItem(id++, "Measures", "л", "RU"));
+		measures.add(new CatItem(id++, "Measures", "kg", "EN"));
+		measures.add(new CatItem(id++, "Measures", "piece", "EN"));
+		measures.add(new CatItem(id++, "Measures", "100 g", "EN"));
+		measures.add(new CatItem(id++, "Measures", "liter", "EN"));
+
+		for (CatItem item : measures) {
+			catByName.put("Measures" + "-" + item.getValue(), item);
+			catById.put(item.getId(), item);
+		}
+		
 	}
 
 	public void createSettlments() {
@@ -355,12 +387,24 @@ public class MockService {
 		return result;
 	}
 
+	public Proposal createProposal(Long id, String name, List<CatItem> categories, CatItem region, Member author, Float price, LocalDate dueDate) {
+		Proposal pp=new Proposal();
+		 	 pp.setId(id) ;
+		     pp.setName(name); 
+			  pp.setCategories(categories); 
+			 pp.setRegion(region); 
+			  pp.setInitiator( author);
+			  pp.setPrice(price); 
+			  pp.setDueDate(dueDate); 
+			  return pp;
+	}		  
+			  
 	private void createProposals() {
 		CatItem haifaReg = getCatByValue("Хайфа", "RU");
 		CatItem telavivReg = getCatByValue("Тель-Авив", "RU");
 		CatItem foodCat = getCatByValue("Продукты питания", "RU");
 		Map<String, String[]> productMap = new HashMap<>();
-		String[] ajectives = "тонкая,длинная,жирная,красная,черная,баклажанная,ароматная,сушеная,вяленная".split(",");
+		String[] ajectives = "свежая,недорогая,эксклюзивная,традиционная,деликатесная,особая, вкусная".split(",");
 		productMap.put("Деликатесы", "Икра,Лососина,Семга,Селедка,Кета".split(","));
 		productMap.put("Мясные продукты", "Свинина,Колбаса,Рыба,Говядина,Баранина".split(","));
 		productMap.put("Овощи и фрукты", "Вишня,Черешня,Клубника,Дыня,Слива,Груша,Оливка".split(","));
@@ -377,13 +421,24 @@ public class MockService {
 			 
 			Proposal p = null;
 			if (i % 2 == 0)
-				p = new Proposal(id++, name, cats, haifaReg, author, randomPrice, dueDate);
+				p = createProposal(id++, name, cats, haifaReg, author, randomPrice, dueDate);
 			else
-				p = new Proposal(id++, name, cats, telavivReg, author, randomPrice, dueDate);
+				p = createProposal(id++, name, cats, telavivReg, author, randomPrice, dueDate);
 			p.setMaxPrice(random.nextFloat());
 			p.setStatus("ProposalStatus.PUBLISHED");
+			p.setWinner("Сеть магазинов 'Мама'");
+			p.setWinnerId((long)999);
+			p.setMeasure(measures.get(random.nextInt(measures.size()-1)));
 			proposals.add(p);
 		}
+	} 
+
+	public PriceProposal createPriceProposal(Long proposalId,Float price,Float quantity ){
+		PriceProposal pp=new PriceProposal();
+		pp.setProposalId(proposalId);
+		pp.setPrice(price);
+		pp.setQuantity(quantity);
+		return pp;
 	}
 
 	public List<CatItem> getCategories() {
@@ -394,13 +449,42 @@ public class MockService {
 		this.categories = categories;
 	}
 
-	public MockService() {
+	private void createActions() {
+		CatItem telavivReg = getCatByValue("Тель-Авив", "RU");
+		CatItem foodCat = getCatByValue("Продукты питания", "RU");
+		List<CatItem> cats = getRandomCategories(foodCat);
+		String[] names=new String[5];
+		names[0]="колбаса вареная";
+		names[1]="сыр моцарелла";
+		names[2]="пиво Гиннес";
+		names[3]="мороженное итальянское";
+		names[4]="конфеты Рафаэлло";
+		for (int i = 0; i < 5; i++) {
+			LocalDate dueDate = LocalDate.now();
+			dueDate.plusDays(random.nextInt(14));
+			Member author = getRandomMember();
+		    String name=names[i];
+		    Long id=(long) (100+i); 
+		    ArrayList<PriceProposal> variants=new ArrayList<PriceProposal>();
+		    variants.add(createPriceProposal(id,new Float(300),new Float(3)) );
+		    variants.add(createPriceProposal(id,new Float(250),new Float(5)) );
+		    variants.add(createPriceProposal(id,new Float(200),new Float(6)) );
+		    Proposal ac = createProposal(id, name, cats, telavivReg, author, new Float(200), dueDate);
+		    ac.setPriceProposals(variants);
+		    actions.add(ac);
+		}
+		    
+	}
+	
+		public MockService() {
 		createGoodsCategory();
 		createRegions();
+		createMeasures();
 		createSettlments();
 		createStaff();
 		createMembers();
 		createProposals();
+		createActions();
 	}
 
 }
