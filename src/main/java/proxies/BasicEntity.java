@@ -4,6 +4,10 @@ import java.time.LocalDateTime;
 
 public class BasicEntity {
 	protected long id;
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	private LocalDateTime modified = LocalDateTime.now();
 
 	public long getId() {

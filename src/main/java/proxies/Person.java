@@ -11,12 +11,15 @@ public class Person extends BasicEntity {
 	private Integer gender;
 	private LocalDate birthday;
 	private String nick;
-	
+	private String password;
+	private String login;
 	private String phone;
 	private String email;
 	private String tag;
 	private String note;
     private User user;
+    private ClientStatus status = ClientStatus.POTENTIAL;
+	private UserType userType = UserType.MEMBER;
 
 	public String getLastName() {
 		return lastName;
@@ -91,9 +94,37 @@ public class Person extends BasicEntity {
 		this.note = note;
 	}
 
-	
+	public UserType getUserType() {
+		return userType;
+	}
+
+	public void setUserType(UserType userType) {
+		this.userType = userType;
+	}
 
 	public String toString() {
 		return getLastName().concat(" ").concat(getFirstName());
 	}
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public ClientStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(ClientStatus status) {
+		this.status = status;
+	}
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
 }
