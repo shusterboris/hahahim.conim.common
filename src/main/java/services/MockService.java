@@ -13,14 +13,13 @@ import java.util.stream.Collectors;
 import application.UserSettings;
 import entities.CatItem;
 import entities.ClientNotification;
-import entities.Member;
-import entities.Proposal;
-import entities.enums.ClientStatus;
-import entities.enums.Gender;
-import entities.enums.UserType;
+import proxies.Address;
+import proxies.Member;
+import proxies.Proposal;
 import proxies.Person;
 import proxies.PriceProposal;
 
+import entities.enums.*;
 public class MockService {
 	private Long id = (long) 10000;
 	private List<CatItem> categories = new ArrayList<CatItem>();
@@ -240,6 +239,14 @@ public class MockService {
 		
 	}
 
+	private Address createStore(String region, String street,String sity) {
+		Address a=new Address();
+		a.setRegion(region);
+		a.setStreetAddress(street);
+		a.setSettlment(sity);
+		return a;
+	}
+
 	public void createSettlments() {
 		CatItem item = getCatByName("Country.Regions-Северный");
 		addToParent(item, "Regions.Settlments", "Кармиэль", "RU");
@@ -450,6 +457,9 @@ public class MockService {
 	}
 
 	private void createActions() {
+		ArrayList<Address> stores=new ArrayList<Address>();
+		stores.add(createStore("Тель-Авив","ул. Герцль 60","Бат-Ям"));
+		stores.add(createStore("Тель-Авив","ул. Жаботински 133","Рамат-Ган"));
 		CatItem telavivReg = getCatByValue("Тель-Авив", "RU");
 		CatItem foodCat = getCatByValue("Продукты питания", "RU");
 		List<CatItem> cats = getRandomCategories(foodCat);
@@ -471,6 +481,7 @@ public class MockService {
 		    variants.add(createPriceProposal(id,new Float(200),new Float(6)) );
 		    Proposal ac = createProposal(id, name, cats, telavivReg, author, new Float(200), dueDate);
 		    ac.setPriceProposals(variants);
+		    ac.setStores(stores);
 		    actions.add(ac);
 		}
 		    
