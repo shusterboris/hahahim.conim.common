@@ -6,9 +6,9 @@ import java.util.List;
 import entities.enums.ProposalStatus;
 
 /**
- * Тенедерное предложение (предложение на совместную закупку)
+ * РўРµРЅРµРґРµСЂРЅРѕРµ РїСЂРµРґР»РѕР¶РµРЅРёРµ (РїСЂРµРґР»РѕР¶РµРЅРёРµ РЅР° СЃРѕРІРјРµСЃС‚РЅСѓСЋ Р·Р°РєСѓРїРєСѓ)
  * 
- * @author Одиссей
+ * @author РћРґРёСЃСЃРµР№
  *
  */
 public class Proposal extends BasicEntity {
@@ -18,9 +18,9 @@ public class Proposal extends BasicEntity {
 	private Member initiator;
 	private Float price;
 	private Float lastPrice;
-	private LocalDate dueDate;// срок окончания приема заявок
+	private LocalDate dueDate;// СЃСЂРѕРє РѕРєРѕРЅС‡Р°РЅРёСЏ РїСЂРёРµРјР° Р·Р°СЏРІРѕРє
 	private CatItem measure;
-	private String status = ProposalStatus.INIT.getMessageKey(); // Из набора TenderStatus
+	private String status = ProposalStatus.INIT.getMessageKey(); // РР· РЅР°Р±РѕСЂР° TenderStatus
 	private List<String> photos;
 	private LocalDate publicationDate;
 	private String winner;
@@ -184,15 +184,15 @@ public class Proposal extends BasicEntity {
 	}
 
 	/**
-	 * Исключительно для отладки
+	 * РСЃРєР»СЋС‡РёС‚РµР»СЊРЅРѕ РґР»СЏ РѕС‚Р»Р°РґРєРё
 	 * 
-	 * @param id         - уникальный id для таблицы
-	 * @param item       - название товара на избранном языке
-	 * @param categories - категория из справочника
-	 * @param region     - регион из справочника
-	 * @param author     - инициатор тендера, Person
-	 * @param i          - максимальная цена, по которой участник приобретет товар
-	 * @param dueDate    - дата завершения тендера
+	 * @param id         - СѓРЅРёРєР°Р»СЊРЅС‹Р№ id РґР»СЏ С‚Р°Р±Р»РёС†С‹
+	 * @param item       - РЅР°Р·РІР°РЅРёРµ С‚РѕРІР°СЂР° РЅР° РёР·Р±СЂР°РЅРЅРѕРј СЏР·С‹РєРµ
+	 * @param categories - РєР°С‚РµРіРѕСЂРёСЏ РёР· СЃРїСЂР°РІРѕС‡РЅРёРєР°
+	 * @param region     - СЂРµРіРёРѕРЅ РёР· СЃРїСЂР°РІРѕС‡РЅРёРєР°
+	 * @param author     - РёРЅРёС†РёР°С‚РѕСЂ С‚РµРЅРґРµСЂР°, Person
+	 * @param i          - РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ С†РµРЅР°, РїРѕ РєРѕС‚РѕСЂРѕР№ СѓС‡Р°СЃС‚РЅРёРє РїСЂРёРѕР±СЂРµС‚РµС‚ С‚РѕРІР°СЂ
+	 * @param dueDate    - РґР°С‚Р° Р·Р°РІРµСЂС€РµРЅРёСЏ С‚РµРЅРґРµСЂР°
 	 */
 	public Proposal(Long id, String name, List<CatItem> categories, CatItem region, Member author, Float price,
 			LocalDate dueDate) {
