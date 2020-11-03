@@ -47,7 +47,16 @@ public class Proposal extends BasicEntity {
 	private LocalDate closeDate;
 	private String description;
     private List<PriceProposal> priceProposals;
+    private List<Address> stores;
     
+	public List<Address> getStores() {
+		return stores;
+	}
+
+	public void setStores(List<Address> stores) {
+		this.stores = stores;
+	}
+
 	public List<CatItem> getCategories() {
 		return categories;
 	}
