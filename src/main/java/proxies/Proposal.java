@@ -6,12 +6,6 @@ import java.util.List;
 import entities.CatItem;
 import entities.enums.ProposalStatus;
 
-/**
- * ���������� ����������� (����������� �� ���������� �������)
- * 
- * @author �������
- *
- */
 public class Proposal extends BasicEntity {
 	private String name;
 	private List<CatItem> categories;

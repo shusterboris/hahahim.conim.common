@@ -354,30 +354,32 @@ public class MockService {
 	}
 
 	public List<Member> createStaff() {
-		clients.add(createMember("Борис", "Шустер", Gender.MALE, UserType.SUPERVISOR, "boris", "nothing"));
-		clients.add(createMember("Инна", "Шустер", Gender.FEMALE, UserType.SUPERVISOR, "inna", "nothing"));
-		clients.add(createMember("Владимир", "Олевский", Gender.MALE, UserType.MODERATOR, "vlad", "nothing"));
-		clients.add(createMember("Хаим", "Шапошник", Gender.MALE, UserType.STACKHOLDER, "haim", "nothing"));
+		clients.add(createMember("Борис", "Шустер", Gender.MALE, UserType.SUPERVISOR, "boris", "123"));
+		clients.add(createMember("Инна", "Шустер", Gender.FEMALE, UserType.SUPERVISOR, "inna", "123"));
+		clients.add(createMember("Владимир", "Олевский", Gender.MALE, UserType.MODERATOR, "vlad", "123"));
+		clients.add(createMember("Хаим", "Шапошник", Gender.MALE, UserType.STACKHOLDER, "haim", "123"));
 		return clients;
 	}
 
 	public void createMembers() {
-		Member member = createMember("Рафаэль", "Шмок", Gender.MALE, UserType.MEMBER, "rafael", "nothing");
+		Member member = createMember("Арон", "Беседер", Gender.MALE, UserType.PARTNER, "aron", "123");
 		member.setId(20000);
 		clients.add(member);
-		member = createMember("Терпила", "Ле-гун", Gender.FEMALE, UserType.MEMBER, "terpila", "nothing");
+		member = createMember("Терпила", "Ле-гун", Gender.FEMALE, UserType.MEMBER, "terpila", "123");
 		member.setId(20001);
 		clients.add(member);
-		member = createMember("Зион", "Розенблюм", Gender.MALE, UserType.MEMBER, "zion", "nothing");
+		member = createMember("Зион", "Розенблюм", Gender.MALE, UserType.MEMBER, "zion", "123");
 		member.setId(20002);
 		clients.add(member);
-		member = createMember("Хайлу", "Недвигу", Gender.MALE, UserType.MEMBER, "hailu", "nothing");
+		member = createMember("Хайлу", "Недвигу", Gender.MALE, UserType.MEMBER, "hailu", "123");
 		member.setId(20003);
 		clients.add(member);
-		member = createMember("Vasiliy", "Чапаев", Gender.MALE, UserType.MEMBER, "vasiliy", "nothing");
+		member = createMember("Vasiliy", "Чапаев", Gender.MALE, UserType.MEMBER, "vasiliy", "123");
 		member.setId(20004);
 		clients.add(member);
-
+		member = createMember("Моше", "Цибулински", Gender.MALE, UserType.PARTNER, "moshe", "123");
+		member.setId(20004);
+		clients.add(member);
 	}
 
 	private Member getRandomMember() {
@@ -463,18 +465,19 @@ public class MockService {
 		CatItem telavivReg = getCatByValue("Тель-Авив", "RU");
 		CatItem foodCat = getCatByValue("Продукты питания", "RU");
 		List<CatItem> cats = getRandomCategories(foodCat);
-		String[] names=new String[5];
+		String[] names=new String[6];
 		names[0]="колбаса вареная";
 		names[1]="сыр моцарелла";
 		names[2]="пиво Гиннес";
 		names[3]="мороженное итальянское";
 		names[4]="конфеты Рафаэлло";
-		for (int i = 0; i < 5; i++) {
+		names[5]="шоколад ";
+		for (int i = 0; i < names.length; i++) {
 			LocalDate dueDate = LocalDate.now();
 			dueDate.plusDays(random.nextInt(14));
 			Member author = getRandomMember();
 		    String name=names[i];
-		    Long id=(long) (100+i); 
+		    Long id=(long) (100+i);
 		    ArrayList<PriceProposal> variants=new ArrayList<PriceProposal>();
 		    variants.add(createPriceProposal(id,new Float(300),new Float(3)) );
 		    variants.add(createPriceProposal(id,new Float(250),new Float(5)) );
@@ -482,12 +485,20 @@ public class MockService {
 		    Proposal ac = createProposal(id, name, cats, telavivReg, author, new Float(200), dueDate);
 		    ac.setPriceProposals(variants);
 		    ac.setStores(stores);
+		    ac.setMeasure(new CatItem((long) 800+i, "Measure", "кг", "RU"));
+		    if (i % 2 == 0) {
+			    ac.setWinner("Бердычевские пончики");
+			    ac.setWinnerId((long)998);
+		    }else {
+			    ac.setWinner("Мирра и дети");
+			    ac.setWinnerId((long)997);
+		    }
 		    actions.add(ac);
 		}
 		    
 	}
 	
-		public MockService() {
+	public MockService() {
 		createGoodsCategory();
 		createRegions();
 		createMeasures();

@@ -4,6 +4,6 @@ public enum Gender {
 	FEMALE, MALE, UNSIGNED;
 
 	public String getMessageKey() {
-		return Class.class.getSimpleName() + "." + name();
+		return getClass().getSimpleName() + "." + name();
 	}
 }
