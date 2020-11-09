@@ -156,7 +156,11 @@ public class MockService {
 		catById.put(item.getId(), item);
 		return item;
 	}
-
+	private CatItem addToParentwithImage(CatItem parent, String itemKey, String itemValue, String itemLanguage,String image) {
+		CatItem item=addToParent(parent,itemKey,itemValue,itemLanguage);
+		item.setAddValue(image);
+		return item;
+	}
 	public List<Member> getClubMembers() {
 		return clients.stream().filter(mbr -> mbr.getUserType() == UserType.MEMBER).collect(Collectors.toList());
 	}
@@ -303,10 +307,12 @@ public class MockService {
 	private void createGoodsCategory() {
 		CatItem item = new CatItem(id++, "Goods.Category", "Продукты питания", "RU");
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
-		addToParent(item, "Goods.Category", "Мясные продукты", "RU");
-		addToParent(item, "Goods.Category", "Овощи и фрукты", "RU");
-		addToParent(item, "Goods.Category", "Деликатесы", "RU");
-		addToParent(item, "Goods.Category", "Алкоголь", "RU");
+		addToParentwithImage(item, "Goods.Category", "Мясные продукты", "RU","Salami.png");
+		addToParentwithImage(item, "Goods.Category", "Овощи и фрукты", "RU","fruits.png");
+		addToParentwithImage(item, "Goods.Category", "Деликатесы", "RU","seefoods.png");
+		addToParentwithImage(item, "Goods.Category", "Алкоголь", "RU","wine.png");
+		addToParentwithImage(item, "Goods.Category", "Сладости", "RU","sw.png");
+		addToParentwithImage(item, "Goods.Category", "Сыр", "RU","sw.png");
 
 		item = new CatItem(id++, "Goods.Category", "Услуги", "RU");
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
@@ -328,10 +334,12 @@ public class MockService {
 		// ********************************************************
 		item = new CatItem(id++, "Goods.Category", "Food", "EN");
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
-		addToParent(item, "Goods.Category", "Meat", "EN");
-		addToParent(item, "Goods.Category", "Vegetables and fruits", "EN");
-		addToParent(item, "Goods.Category", "Delicacies", "EN");
-		addToParent(item, "Goods.Category", "Drinks", "EN");
+		addToParentwithImage(item, "Goods.Category", "Meat", "EN","Salami.png");
+		addToParentwithImage(item, "Goods.Category", "Vegetables and fruits", "EN","fruits.png");
+		addToParentwithImage(item, "Goods.Category", "Delicacies", "EN","seefoods.png");
+		addToParentwithImage(item, "Goods.Category", "Drinks", "EN","wine.png");
+		addToParentwithImage(item, "Goods.Category", "Sweets", "EN","sw.png");
+		addToParentwithImage(item, "Goods.Category", "Cheese", "EN","sw.png");
 
 		item = new CatItem(id++, "Goods.Category", "Services", "EN");
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
@@ -463,15 +471,23 @@ public class MockService {
 		stores.add(createStore("Тель-Авив","ул. Герцль 60","Бат-Ям"));
 		stores.add(createStore("Тель-Авив","ул. Жаботински 133","Рамат-Ган"));
 		CatItem telavivReg = getCatByValue("Тель-Авив", "RU");
-		CatItem foodCat = getCatByValue("Продукты питания", "RU");
-		List<CatItem> cats = getRandomCategories(foodCat);
+		
+		CatItem[] foodcat =  new CatItem[6];
+		foodcat[0]=getCatByValue("Мясные продукты", "RU");
+		foodcat[1]=getCatByValue("Сыр", "RU");
+		foodcat[2]=getCatByValue( "Алкоголь", "RU");
+		foodcat[3]=getCatByValue("Овощи и фрукты", "RU");
+		foodcat[4]=getCatByValue( "Деликатесы", "RU");
+		foodcat[5]=getCatByValue( "Сладости", "RU");
+		
 		String[] names=new String[6];
 		names[0]="колбаса вареная";
 		names[1]="сыр моцарелла";
 		names[2]="пиво Гиннес";
-		names[3]="мороженное итальянское";
-		names[4]="конфеты Рафаэлло";
+		names[3]="клубника свежая";
+		names[4]="икра красная";
 		names[5]="шоколад ";
+		
 		for (int i = 0; i < names.length; i++) {
 			LocalDate dueDate = LocalDate.now();
 			dueDate.plusDays(random.nextInt(14));
@@ -482,6 +498,9 @@ public class MockService {
 		    variants.add(createPriceProposal(id,new Float(300),new Float(3)) );
 		    variants.add(createPriceProposal(id,new Float(250),new Float(5)) );
 		    variants.add(createPriceProposal(id,new Float(200),new Float(6)) );
+		    ArrayList<CatItem> cats=new ArrayList<CatItem>();
+		    cats.add(getCatByValue("Продукты питания", "RU"));
+		    cats.add(foodcat[i]);
 		    Proposal ac = createProposal(id, name, cats, telavivReg, author, new Float(200), dueDate);
 		    ac.setPriceProposals(variants);
 		    ac.setStores(stores);
@@ -493,6 +512,10 @@ public class MockService {
 			    ac.setWinner("Мирра и дети");
 			    ac.setWinnerId((long)997);
 		    }
+		  
+		    List<String> ps=new ArrayList<String>();
+		    ps.add(foodcat[i].getAddValue());
+			ac.setPhotos(ps);
 		    actions.add(ac);
 		}
 		    

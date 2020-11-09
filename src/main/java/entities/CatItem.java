@@ -2,10 +2,10 @@ package entities;
 
 /**
  * 
- * @author Одиссей Универсальный справочник: категории товаров, регионы, города
- *         и т.д. Может быть многоуровневым, тогда parentId содержит id
- *         родительского уровня Может сортироваться по алфавиту либо в порядке,
- *         заданном в sortOrder
+ * @author пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ
+ *         пїЅ пїЅ.пїЅ. пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ parentId пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ id
+ *         пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ,
+ *         пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ sortOrder
  */
 public class CatItem extends BasicEntity {
 	private String key;
@@ -13,6 +13,15 @@ public class CatItem extends BasicEntity {
 	private Long parentId = (long) 0;
 	private String value;
 	private Integer sortOrder = 1000;
+	private String addValue;  //file name with image
+
+	public String getAddValue() {
+		return addValue;
+	}
+
+	public void setAddValue(String addValue) {
+		this.addValue = addValue;
+	}
 
 	public String getKey() {
 		return key;
