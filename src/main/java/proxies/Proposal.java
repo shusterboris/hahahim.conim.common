@@ -223,33 +223,10 @@ public class Proposal extends BasicEntity implements Serializable{
 		this.description = description;
 	}
 
-	/**
-	 * ������������� ��� �������
-	 * 
-	 * @param id         - ���������� id ��� �������
-	 * @param item       - �������� ������ �� ��������� �����
-	 * @param categories - ��������� �� �����������
-	 * @param region     - ������ �� �����������
-	 * @param author     - ��������� �������, Person
-	 * @param i          - ������������ ����, �� ������� �������� ���������� �����
-	 * @param dueDate    - ���� ���������� �������
-	 */
-	/*
-	 * public Proposal(Long id, String name, List<CatItem> categories, CatItem region, entities.Member author, Float price, LocalDate dueDate) { 
-	 * super();
-	 * this.name = name; 
-	 * this.categories = categories; 
-	 * this.region = region; 
-	 * this.initiator = author;
-	 *  this.price = price; 
-	 *  this.dueDate = dueDate; 
-	 *  }
-	 */
-	
 
 	@Override
 	public String toString() {
-		return name.concat(", ").concat(region.getValue()).concat(", ").concat(initiator.toString());
+		return name;
 	}
 
 }

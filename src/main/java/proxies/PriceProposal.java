@@ -50,4 +50,8 @@ public class PriceProposal extends BasicEntity  implements Serializable{
 		this.proposalType = proposalType;
 	}
 
+	@Override
+	public String toString() {
+		return this.price.toString().concat(" for ").concat(this.quantity.toString());
+	}
 }

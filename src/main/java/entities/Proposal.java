@@ -16,7 +16,13 @@ public class Proposal extends BasicEntity {
 	private List<CatItem> categories;
 	private CatItem region;
 	private Member initiator;
+	/**
+	 * base price (non actions) from proposals for actions and initial tender's price for tender
+	 */
 	private Float price;
+	/**
+	 * lowest price from proposals for actions and final (best price proposal) tender's price for tender
+	 */	
 	private Float lastPrice;
 	private LocalDate dueDate;// срок окончания приема заявок
 	private CatItem measure;
