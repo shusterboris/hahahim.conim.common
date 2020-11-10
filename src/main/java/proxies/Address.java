@@ -1,14 +1,12 @@
 package proxies;
 
 public class Address extends BasicEntity {
-
+	private static final long serialVersionUID = -6276857316780429416L;
 	private String region;  //from catItem
 	private String settlment;  //from catItem
 	private String streetAddress;
 	private Float latitude;
 	private Float altitude;
-	
-	
 
 	public String getRegion() {
 		return region;

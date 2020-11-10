@@ -1,12 +1,14 @@
 package proxies;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 import entities.CatItem;
 import entities.enums.ProposalStatus;
 
-public class Proposal extends BasicEntity {
+public class Proposal extends BasicEntity implements Serializable{
+	private static final long serialVersionUID = -8117381935020236594L;
 	private String name;
 	private List<CatItem> categories;
 	private CatItem region;
