@@ -14,8 +14,11 @@ import application.UserSettings;
 import entities.CatItem;
 import entities.ClientNotification;
 import proxies.Address;
+import proxies.BusinessPartner;
+import proxies.Contacts;
 import proxies.Member;
 import proxies.Proposal;
+import proxies.Store;
 import proxies.Person;
 import proxies.PriceProposal;
 
@@ -30,6 +33,7 @@ public class MockService {
 	List<CatItem> measures = new ArrayList<>();
 	List<Proposal> actions = new ArrayList<>();
 	private Random random = new Random();
+	private BusinessPartner partner;
 
 	public List<CatItem> getCatsByCategory(String key, String language) {
 		if (language == null)
@@ -243,7 +247,7 @@ public class MockService {
 		
 	}
 
-	private Address createStore(String region, String street,String sity) {
+	private Address createAddress(String region, String street,String sity) {
 		Address a=new Address();
 		a.setRegion(region);
 		a.setStreetAddress(street);
@@ -468,8 +472,8 @@ public class MockService {
 
 	private void createActions() {
 		ArrayList<Address> stores=new ArrayList<Address>();
-		stores.add(createStore("Тель-Авив","ул. Герцль 60","Бат-Ям"));
-		stores.add(createStore("Тель-Авив","ул. Жаботински 133","Рамат-Ган"));
+		stores.add(createAddress("Тель-Авив","ул. Герцль 60","Бат-Ям"));
+		stores.add(createAddress("Тель-Авив","ул. Жаботински 133","Рамат-Ган"));
 		CatItem telavivReg = getCatByValue("Тель-Авив", "RU");
 		
 		CatItem[] foodcat =  new CatItem[6];
@@ -521,6 +525,22 @@ public class MockService {
 		    
 	}
 	
+	private void createPartner() {
+		partner=new BusinessPartner("",createAddress("Тель-Авив","ул. Гистадрут 20","Бней-брак"), (long) 0);
+		partner.setId(11111);
+		partner.setName("Мааданей Росман");
+		partner.setFullName("Сеть Мааданей Росман");
+		ArrayList<Store> stores=new ArrayList<Store>();
+		stores.add(new Store("",createAddress("Хайфа","ул. Герцль 60","Хайфа"),partner.getId()));
+		stores.add(new Store("",createAddress("Тель-Авив","ул. Жаботински 133","Рамат-Ган"),partner.getId()));
+		partner.setStores(stores);
+		ArrayList<Contacts> allContacts=new ArrayList<Contacts>();
+		allContacts.add(new Contacts("Михаил","Коэн","050-9999-88-77"));
+		allContacts.add(new Contacts("Давид","Левин", "050-9999-88-77"));
+		partner.setContacts(allContacts);
+		
+	}
+	
 	public MockService() {
 		createGoodsCategory();
 		createRegions();
@@ -530,6 +550,13 @@ public class MockService {
 		createMembers();
 		createProposals();
 		createActions();
+		createPartner();
+		
 	}
+		public BusinessPartner getPartnerById(Long id) {
+		return partner;
+	}
+	
+	
 
 }

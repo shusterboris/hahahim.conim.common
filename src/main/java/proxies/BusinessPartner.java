@@ -6,7 +6,7 @@ public class BusinessPartner extends Store {
     private String name;
     private String fullName;
     private String phone;
-    private ArrayList<Person> contacts;
+    private ArrayList<Contacts> contacts;
     private ArrayList<Store> stores;
     public String getName() {
 		return name;
@@ -26,10 +26,10 @@ public class BusinessPartner extends Store {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public ArrayList<Person> getContacts() {
+	public ArrayList<Contacts> getContacts() {
 		return contacts;
 	}
-	public void setContacts(ArrayList<Person> contacts) {
+	public void setContacts(ArrayList<Contacts> contacts) {
 		this.contacts = contacts;
 	}
 	public ArrayList<Store> getStores() {
