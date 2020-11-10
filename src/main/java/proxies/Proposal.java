@@ -13,31 +13,16 @@ public class Proposal extends BasicEntity implements Serializable{
 	private List<CatItem> categories;
 	private CatItem region;
 	private Member initiator;
-	private Float price;
-	public Person getInitiator() {
-		return initiator;
-	}
-
-	public void setInitiator(Member author) {
-		this.initiator = author;
-	}
-
-	public List<PriceProposal> getPriceProposals() {
-		return priceProposals;
-	}
-
-	public void setPriceProposals(List<PriceProposal> priceProposals) {
-		this.priceProposals = priceProposals;
-	}
+	private Float price = (float) 0.0;
 	private Float lastPrice;
-	private LocalDate dueDate;// ���� ��������� ������ ������
+	private LocalDate dueDate;
 	private CatItem measure;
 	private String status = ProposalStatus.INIT.getMessageKey(); // �� ������ TenderStatus
 	private List<String> photos;
 	private LocalDate publicationDate;
 	private String winner;
 	private Long winnerId;
-	private Float total;
+	private Float total = (float) 0.0;
 	private Integer countMembers;
 	private LocalDate dateOfSailStarting;
 	private LocalDate closeDate;
@@ -221,6 +206,22 @@ public class Proposal extends BasicEntity implements Serializable{
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Person getInitiator() {
+		return initiator;
+	}
+
+	public void setInitiator(Member author) {
+		this.initiator = author;
+	}
+
+	public List<PriceProposal> getPriceProposals() {
+		return priceProposals;
+	}
+
+	public void setPriceProposals(List<PriceProposal> priceProposals) {
+		this.priceProposals = priceProposals;
 	}
 
 
