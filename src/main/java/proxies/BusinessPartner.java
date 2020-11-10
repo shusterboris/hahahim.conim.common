@@ -2,8 +2,9 @@ package proxies;
 
 import java.util.ArrayList;
 
-public class BusinessPartner extends Store {
-    private String name;
+public class BusinessPartner extends Store{
+ 	private static final long serialVersionUID = -7523924559237866260L;
+	private String name;
     private String fullName;
     private String phone;
     private ArrayList<Contacts> contacts;

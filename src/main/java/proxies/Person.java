@@ -1,11 +1,13 @@
 package proxies;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import entities.enums.ClientStatus;
 import entities.enums.UserType;
 
-public class Person extends BasicEntity {
+public class Person extends BasicEntity  implements Serializable{
+	private static final long serialVersionUID = -2772623296089653648L;
 	private String lastName;
 	private String firstName;
 	private Integer gender;

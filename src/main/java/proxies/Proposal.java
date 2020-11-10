@@ -1,41 +1,28 @@
 package proxies;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 import entities.CatItem;
 import entities.enums.ProposalStatus;
 
-public class Proposal extends BasicEntity {
+public class Proposal extends BasicEntity implements Serializable{
+	private static final long serialVersionUID = -8117381935020236594L;
 	private String name;
 	private List<CatItem> categories;
 	private CatItem region;
 	private Member initiator;
-	private Float price;
-	public Person getInitiator() {
-		return initiator;
-	}
-
-	public void setInitiator(Member author) {
-		this.initiator = author;
-	}
-
-	public List<PriceProposal> getPriceProposals() {
-		return priceProposals;
-	}
-
-	public void setPriceProposals(List<PriceProposal> priceProposals) {
-		this.priceProposals = priceProposals;
-	}
+	private Float price = (float) 0.0;
 	private Float lastPrice;
-	private LocalDate dueDate;// ���� ��������� ������ ������
+	private LocalDate dueDate;
 	private CatItem measure;
 	private String status = ProposalStatus.INIT.getMessageKey(); // �� ������ TenderStatus
 	private List<String> photos;
 	private LocalDate publicationDate;
 	private String winner;
 	private Long winnerId;
-	private Float total;
+	private Float total = (float) 0.0;
 	private Integer countMembers;
 	private LocalDate dateOfSailStarting;
 	private LocalDate closeDate;
@@ -221,33 +208,26 @@ public class Proposal extends BasicEntity {
 		this.description = description;
 	}
 
-	/**
-	 * ������������� ��� �������
-	 * 
-	 * @param id         - ���������� id ��� �������
-	 * @param item       - �������� ������ �� ��������� �����
-	 * @param categories - ��������� �� �����������
-	 * @param region     - ������ �� �����������
-	 * @param author     - ��������� �������, Person
-	 * @param i          - ������������ ����, �� ������� �������� ���������� �����
-	 * @param dueDate    - ���� ���������� �������
-	 */
-	/*
-	 * public Proposal(Long id, String name, List<CatItem> categories, CatItem region, entities.Member author, Float price, LocalDate dueDate) { 
-	 * super();
-	 * this.name = name; 
-	 * this.categories = categories; 
-	 * this.region = region; 
-	 * this.initiator = author;
-	 *  this.price = price; 
-	 *  this.dueDate = dueDate; 
-	 *  }
-	 */
-	
+	public Person getInitiator() {
+		return initiator;
+	}
+
+	public void setInitiator(Member author) {
+		this.initiator = author;
+	}
+
+	public List<PriceProposal> getPriceProposals() {
+		return priceProposals;
+	}
+
+	public void setPriceProposals(List<PriceProposal> priceProposals) {
+		this.priceProposals = priceProposals;
+	}
+
 
 	@Override
 	public String toString() {
-		return name.concat(", ").concat(region.getValue()).concat(", ").concat(initiator.toString());
+		return name;
 	}
 
 }

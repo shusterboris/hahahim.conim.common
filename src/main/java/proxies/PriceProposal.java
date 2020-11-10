@@ -1,6 +1,9 @@
 package proxies;
 
-public class PriceProposal extends BasicEntity {
+import java.io.Serializable;
+
+public class PriceProposal extends BasicEntity  implements Serializable{
+	private static final long serialVersionUID = 7882895218501386694L;
 	private Long memberId;
 	private Long proposalId;
 	private Float quantity;
@@ -47,4 +50,8 @@ public class PriceProposal extends BasicEntity {
 		this.proposalType = proposalType;
 	}
 
+	@Override
+	public String toString() {
+		return this.price.toString().concat(" for ").concat(this.quantity.toString());
+	}
 }

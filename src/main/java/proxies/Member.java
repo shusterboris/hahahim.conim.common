@@ -3,6 +3,7 @@ package proxies;
 import java.util.ArrayList;
 
 public class Member extends Person {
+private static final long serialVersionUID = 627950708658994487L;
 private Integer level; //member level
 private ArrayList<String> regions;
 public Integer getLevel() {

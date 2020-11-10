@@ -1,19 +1,18 @@
 package entities;
 
-/**
- * 
- * @author ������� ������������� ����������: ��������� �������, �������, ������
- *         � �.�. ����� ���� ��������������, ����� parentId �������� id
- *         ������������� ������ ����� ������������� �� �������� ���� � �������,
- *         �������� � sortOrder
- */
 public class CatItem extends BasicEntity {
 	private String key;
 	private String language;
 	private Long parentId = (long) 0;
 	private String value;
+	/**
+	 * if I need special sort order, not by alphabet
+	 */
 	private Integer sortOrder = 1000;
-	private String addValue;  //file name with image
+	/**
+	 * additional info, particularly name of image file
+	 */
+	private String addValue;  
 
 	public String getAddValue() {
 		return addValue;
@@ -85,8 +84,7 @@ public class CatItem extends BasicEntity {
 
 	@Override
 	public String toString() {
-		return value.concat(" ,id:").concat(String.valueOf(id)).concat(", key:").concat(key).concat("_")
-				.concat(language).concat(", parent:".concat(String.valueOf(parentId)));
+		return this.value;
 	}
 
 }
