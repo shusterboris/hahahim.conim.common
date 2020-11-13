@@ -492,6 +492,14 @@ public class MockService {
 		names[4]="икра красная";
 		names[5]="шоколад ";
 		
+		Float[] prices=new Float[6];
+		prices[0]= (float) 60.0;
+		prices[1]=(float) 80.0;
+		prices[2]=(float) 7.0;
+		prices[3]=(float) 25.0;
+		prices[4]=(float) 300.0;
+		prices[5]=(float) 90.0;
+		
 		for (int i = 0; i < names.length; i++) {
 			LocalDate dueDate = LocalDate.now();
 			dueDate.plusDays(random.nextInt(14));
@@ -499,16 +507,20 @@ public class MockService {
 		    String name=names[i];
 		    Long id=(long) (100+i);
 		    ArrayList<PriceProposal> variants=new ArrayList<PriceProposal>();
-		    variants.add(createPriceProposal(id,new Float(300),new Float(3)) );
-		    variants.add(createPriceProposal(id,new Float(250),new Float(5)) );
-		    variants.add(createPriceProposal(id,new Float(200),new Float(6)) );
+		    variants.add(createPriceProposal(id,(float) (prices[i]*0.6),new Float(10)) );
+		    variants.add(createPriceProposal(id,(float) (prices[i]*0.7),new Float(5)) );
+		    variants.add(createPriceProposal(id,(float) (prices[i]*0.8),new Float(3)) );
 		    ArrayList<CatItem> cats=new ArrayList<CatItem>();
 		    cats.add(getCatByValue("Продукты питания", "RU"));
 		    cats.add(foodcat[i]);
-		    Proposal ac = createProposal(id, name, cats, telavivReg, author, new Float(200), dueDate);
+		    Proposal ac = createProposal(id, name, cats, telavivReg, author, prices[i], dueDate);
 		    ac.setPriceProposals(variants);
 		    ac.setStores(stores);
-		    ac.setMeasure(new CatItem((long) 800+i, "Measure", "кг", "RU"));
+		    if (i==3)  {
+		    	ac.setMeasure(new CatItem((long) 800+i, "Measure", "шт", "RU"));
+		    } else {
+		     ac.setMeasure(new CatItem((long) 800+i, "Measure", "кг", "RU"));
+		    } 
 		    if (i % 2 == 0) {
 			    ac.setWinner("Бердычевские пончики");
 			    ac.setWinnerId((long)998);
