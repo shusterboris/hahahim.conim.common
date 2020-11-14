@@ -48,6 +48,11 @@ public class Address extends BasicEntity {
 		this.altitude = altitude;
 	}
 
+	@Override
+	public String toString() {
+		return region + ", " + settlment + ", " + streetAddress;
+	}
+
 	
 
 }
