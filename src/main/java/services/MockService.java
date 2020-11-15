@@ -492,6 +492,13 @@ public class MockService {
 		names[4]="икра красная";
 		names[5]="шоколад ";
 		
+		String[] desc=new String[6];
+		desc[0]="индюшиная со специями";
+		desc[1]="производство Италия";
+		desc[2]="банка 500 мл";	
+		desc[3]="крупная сладкая";
+		desc[4]="банка вес 150  гр"	;
+		desc[5]="молочный с орехами плитка 100гр";
 		Float[] prices=new Float[6];
 		prices[0]= (float) 60.0;
 		prices[1]=(float) 80.0;
@@ -514,6 +521,7 @@ public class MockService {
 		    cats.add(getCatByValue("Продукты питания", "RU"));
 		    cats.add(foodcat[i]);
 		    Proposal ac = createProposal(id, name, cats, telavivReg, author, prices[i], dueDate);
+		    ac.setLastPrice((float) (prices[i]*0.6));
 		    ac.setPriceProposals(variants);
 		    ac.setStores(stores);
 		    if (i==3)  {
@@ -525,13 +533,14 @@ public class MockService {
 			    ac.setWinner("Бердычевские пончики");
 			    ac.setWinnerId((long)998);
 		    }else {
-			    ac.setWinner("Мирра и дети");
-			    ac.setWinnerId((long)997);
+			    ac.setWinner("Мааданей Росман");
+			    ac.setWinnerId((long)11111);
 		    }
 		  
 		    List<String> ps=new ArrayList<String>();
 		    ps.add(foodcat[i].getAddValue());
 			ac.setPhotos(ps);
+			ac.setDescription(desc[i]);
 		    actions.add(ac);
 		}
 		    
