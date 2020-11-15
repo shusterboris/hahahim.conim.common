@@ -23,7 +23,7 @@ public class Proposal extends BasicEntity implements Serializable{
 	private String winner;
 	private Long winnerId;
 	private Float total = (float) 0.0;
-	private Integer countMembers;
+	private Integer countMembers = 0;
 	private LocalDate dateOfSailStarting;
 	private LocalDate closeDate;
 	private String description;

@@ -1,6 +1,9 @@
 package entities;
 
-public class CatItem extends BasicEntity {
+import java.io.Serializable;
+
+public class CatItem extends BasicEntity implements Serializable{
+	private static final long serialVersionUID = -9215990634396625375L;
 	private String key;
 	private String language;
 	private Long parentId = (long) 0;

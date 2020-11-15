@@ -569,6 +569,18 @@ public class MockService {
 		return partner;
 	}
 	
+	public List<CatItem> getAllCategories(String language){
+		if (language == null)
+			language = UserSettings.getChoosenLanguage();
+		final String lang = language;
+		List<CatItem> items = new ArrayList<CatItem>();
+		catByName.forEach((k, value) -> {
+			if (lang.equalsIgnoreCase(value.getLanguage()))
+				items.add(value);
+		});
+		return items;
+
+	}
 	
 
 }
