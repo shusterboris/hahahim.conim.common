@@ -313,7 +313,7 @@ public class MockService {
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
 		addToParentwithImage(item, "Goods.Category", "Мясные продукты", "RU","Salami.png");
 		addToParentwithImage(item, "Goods.Category", "Овощи и фрукты", "RU","fruits.png");
-		addToParentwithImage(item, "Goods.Category", "Деликатесы", "RU","seefoods.png");
+		addToParentwithImage(item, "Goods.Category", "Деликатесы", "RU","seafoods.png");
 		addToParentwithImage(item, "Goods.Category", "Алкоголь", "RU","wine.png");
 		addToParentwithImage(item, "Goods.Category", "Сладости", "RU","sw.png");
 		addToParentwithImage(item, "Goods.Category", "Сыр", "RU","sw.png");
