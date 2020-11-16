@@ -316,7 +316,7 @@ public class MockService {
 		addToParentwithImage(item, "Goods.Category", "Деликатесы", "RU","seafoods.png");
 		addToParentwithImage(item, "Goods.Category", "Алкоголь", "RU","wine.png");
 		addToParentwithImage(item, "Goods.Category", "Сладости", "RU","sw.png");
-		addToParentwithImage(item, "Goods.Category", "Сыр", "RU","sw.png");
+		addToParentwithImage(item, "Goods.Category", "Сыр", "RU","cheese.png");
 
 		item = new CatItem(id++, "Goods.Category", "Услуги", "RU");
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
@@ -340,10 +340,10 @@ public class MockService {
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
 		addToParentwithImage(item, "Goods.Category", "Meat", "EN","Salami.png");
 		addToParentwithImage(item, "Goods.Category", "Vegetables and fruits", "EN","fruits.png");
-		addToParentwithImage(item, "Goods.Category", "Delicacies", "EN","seefoods.png");
+		addToParentwithImage(item, "Goods.Category", "Delicacies", "EN","seafoods.png");
 		addToParentwithImage(item, "Goods.Category", "Drinks", "EN","wine.png");
 		addToParentwithImage(item, "Goods.Category", "Sweets", "EN","sw.png");
-		addToParentwithImage(item, "Goods.Category", "Cheese", "EN","sw.png");
+		addToParentwithImage(item, "Goods.Category", "Cheese", "EN","cheese.png");
 
 		item = new CatItem(id++, "Goods.Category", "Services", "EN");
 		catByName.put("Goods.Category" + "-" + item.getValue(), item);
