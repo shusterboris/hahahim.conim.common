@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class Store extends BasicEntity implements Serializable{
 	private static final long serialVersionUID = 2624926622636823053L;
-	private String name;
-	private Address address;
+	protected String name;
+	protected Address address;
 	protected Long headQuatersId = (long) 0;
 
 	public String getName() {
