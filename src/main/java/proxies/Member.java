@@ -7,6 +7,15 @@ public class Member extends Person {
 	private Integer level; //member level
 	private ArrayList<String> regions;
 	private Long partnerId;
+	private String analytics;
+
+	public String getAnalytics() {
+		return analytics;
+	}
+
+	public void setAnalytics(String analytics) {
+		this.analytics = analytics;
+	}
 
 	public Long getPartnerId() {
 		return partnerId;

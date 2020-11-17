@@ -32,6 +32,7 @@ public class MockService {
 	List<Proposal> proposals = new ArrayList<>();
 	List<CatItem> measures = new ArrayList<>();
 	List<Proposal> actions = new ArrayList<>();
+	List<BusinessPartner> partners = new ArrayList<>();
 	private Random random = new Random();
 	private BusinessPartner partner;
 
@@ -174,6 +175,22 @@ public class MockService {
 				.stream().filter(mbr -> (mbr.getUserType() == UserType.SUPERVISOR
 						|| mbr.getUserType() == UserType.MODERATOR || mbr.getUserType() == UserType.STACKHOLDER))
 				.collect(Collectors.toList());
+	}
+	
+	
+	public BusinessPartner getBusinessPartnerById(long id) {
+			Optional<BusinessPartner> p = partners.stream()
+					.filter(entry -> entry.getId() == id)
+					.findFirst();
+			return p.isPresent() ? p.get() : null;
+	}
+	
+	public Member getPartnerStaffById(long id) {
+		Optional<Member> member = clients.stream()
+				.filter(mbr -> (mbr.getUserType() == UserType.PARTNER
+						&& mbr.getId() == id))
+				.findFirst();
+		return member.isPresent() ? member.get() : null;
 	}
 
 	public Member getUser(String login, String pasword) {
@@ -376,6 +393,7 @@ public class MockService {
 	public void createMembers() {
 		Member member = createMember("Арон", "Беседер", Gender.MALE, UserType.PARTNER, "aron", "123");
 		member.setId(20000);
+		member.setPartnerId((long) 11111);
 		clients.add(member);
 		member = createMember("Терпила", "Ле-гун", Gender.FEMALE, UserType.MEMBER, "terpila", "123");
 		member.setId(20001);
@@ -592,8 +610,9 @@ public class MockService {
 		ArrayList<Contacts> allContacts=new ArrayList<Contacts>();
 		allContacts.add(new Contacts("Михаил","Коэн","050-9999-88-77"));
 		allContacts.add(new Contacts("Давид","Левин", "050-9999-88-77"));
+		allContacts.add(new Contacts("Арон","Беседер", "050-9999-77-77"));
 		partner.setContacts(allContacts);
-		
+		partners.add(partner);
 	}
 	
 	public MockService() {
@@ -607,9 +626,6 @@ public class MockService {
 		createActions();
 		createPartner();
 		
-	}
-		public BusinessPartner getPartnerById(Long id) {
-		return partner;
 	}
 	
 	public List<CatItem> getAllCategories(String language){
