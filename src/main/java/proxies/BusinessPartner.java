@@ -1,14 +1,15 @@
 package proxies;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BusinessPartner extends Store{
  	private static final long serialVersionUID = -7523924559237866260L;
 	private String name;
     private String fullName;
     private String phone;
-    private ArrayList<Contacts> contacts;
-    private ArrayList<Store> stores;
+    private List<Contacts> contacts;
+    private List<Store> stores;
  
     public String getName() {
 		return name;
@@ -28,13 +29,13 @@ public class BusinessPartner extends Store{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public ArrayList<Contacts> getContacts() {
+	public List<Contacts> getContacts() {
 		return contacts;
 	}
 	public void setContacts(ArrayList<Contacts> contacts) {
 		this.contacts = contacts;
 	}
-	public ArrayList<Store> getStores() {
+	public List<Store> getStores() {
 		return stores;
 	}
 	
@@ -48,6 +49,6 @@ public class BusinessPartner extends Store{
 	}
 
 	public String toString() {
-		return getName().concat(", ").concat(getAddress().getSettlment());
+		return getName().concat(", ").concat(getAddress().getSettlement());
 	}
 }

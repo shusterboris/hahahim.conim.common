@@ -2,7 +2,7 @@ package proxies;
 // used only for BusinessPartner
 public class Contacts {
   private String firstName;
-  private String name;
+  private String lastName;
   private String phone;
   
   
@@ -16,13 +16,13 @@ public void setFirstName(String firstName) {
 }
 
 
-public String getName() {
-	return name;
+public String getLastName() {
+	return lastName;
 }
 
 
-public void setName(String name) {
-	this.name = name;
+public void setLastName(String name) {
+	this.lastName = name;
 }
 
 
@@ -38,7 +38,7 @@ public void setPhone(String phone) {
 
 public Contacts(String firstName, String name, String phone) {
 	this.firstName = firstName;
-	this.name = name;
+	this.lastName = name;
 	this.phone = phone;
 }
 }

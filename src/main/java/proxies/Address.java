@@ -3,7 +3,7 @@ package proxies;
 public class Address extends BasicEntity {
 	private static final long serialVersionUID = -6276857316780429416L;
 	private String region;  //from catItem
-	private String settlment;  //from catItem
+	private String settlement;  //from catItem
 	private String streetAddress;
 	private Float latitude;
 	private Float altitude;
@@ -16,12 +16,12 @@ public class Address extends BasicEntity {
 		this.region = region;
 	}
 
-	public String getSettlment() {
-		return settlment;
+	public String getSettlement() {
+		return settlement;
 	}
 
-	public void setSettlment(String settlment) {
-		this.settlment = settlment;
+	public void setSettlement(String settlment) {
+		this.settlement = settlment;
 	}
 
 	public String getStreetAddress() {
@@ -50,7 +50,7 @@ public class Address extends BasicEntity {
 
 	@Override
 	public String toString() {
-		return region + ", " + settlment + ", " + streetAddress;
+		return region + ", " + settlement + ", " + streetAddress;
 	}
 
 	

@@ -268,7 +268,7 @@ public class MockService {
 		Address a=new Address();
 		a.setRegion(region);
 		a.setStreetAddress(street);
-		a.setSettlment(sity);
+		a.setSettlement(sity);
 		return a;
 	}
 
