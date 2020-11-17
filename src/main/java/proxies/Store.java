@@ -44,4 +44,18 @@ public class Store extends BasicEntity implements Serializable{
 		this.id = id;
 	}
 
+	public String toStringShort() {
+		if (!"".equals(name))
+			return name.concat(". ").concat(getAddress().getSettlment());
+		else
+			return getAddress().getSettlment().concat(",").concat(getAddress().getStreetAddress());
+	}
+	
+	public String toString() {
+		if (!"".equals(name))
+			return name.concat(". ").concat(getAddress().getSettlment()).concat(",").concat(getAddress().getStreetAddress());
+		else
+			return getAddress().getSettlment().concat(",").concat(getAddress().getStreetAddress());
+		
+	}
 }

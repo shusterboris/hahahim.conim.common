@@ -470,6 +470,40 @@ public class MockService {
 		this.categories = categories;
 	}
 
+	public Proposal getAction(long id) {
+		Optional<Proposal> found = actions.stream()
+			.filter(action -> action.getId() == id)
+			.findFirst();
+		return found.isPresent() ? found.get() : null;
+	}
+
+	public Long addAction(Proposal p) {
+		Proposal last = actions.get(actions.size()-1);
+		Long id = last.getId()+1;
+		p.setId(id);
+		actions.add(p);
+		return id;
+	}
+		
+	public boolean updateAction(Proposal p) {
+		try {
+			int ind = 0;
+			for(Proposal action : actions) {
+				if (action.getId() == id) {
+					actions.set(ind, p);
+					return true;
+				}
+				ind++;
+			}
+			return false;
+		}catch (Exception e){
+			e.printStackTrace();
+			return false;
+		}		
+	}
+	
+	
+	
 	private void createActions() {
 		ArrayList<Address> stores=new ArrayList<Address>();
 		stores.add(createAddress("Тель-Авив","ул. Герцль 60","Бат-Ям"));

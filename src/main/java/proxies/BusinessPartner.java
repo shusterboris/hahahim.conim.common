@@ -9,6 +9,7 @@ public class BusinessPartner extends Store{
     private String phone;
     private ArrayList<Contacts> contacts;
     private ArrayList<Store> stores;
+ 
     public String getName() {
 		return name;
 	}
@@ -46,4 +47,7 @@ public class BusinessPartner extends Store{
 		this.headQuatersId = (long) 0;
 	}
 
+	public String toString() {
+		return getName().concat(", ").concat(getAddress().getSettlment());
+	}
 }
