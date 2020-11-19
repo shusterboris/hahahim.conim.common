@@ -395,20 +395,26 @@ public class MockService {
 		member.setId(20000);
 		member.setPartnerId((long) 11111);
 		clients.add(member);
-		member = createMember("Терпила", "Ле-гун", Gender.FEMALE, UserType.MEMBER, "terpila", "123");
+		member = createMember("Мэй", "Ле-гун", Gender.FEMALE, UserType.MEMBER, "may", "123");
 		member.setId(20001);
+		member.setLevel(MemberStatus.SIMPLE.ordinal());
 		clients.add(member);
 		member = createMember("Зион", "Розенблюм", Gender.MALE, UserType.MEMBER, "zion", "123");
 		member.setId(20002);
+		member.setLevel(MemberStatus.GOLD.ordinal());
 		clients.add(member);
-		member = createMember("Хайлу", "Недвигу", Gender.MALE, UserType.MEMBER, "hailu", "123");
+		member = createMember("Лена", "Коган", Gender.FEMALE, UserType.MEMBER, "lena", "123");
 		member.setId(20003);
+		member.setLevel(MemberStatus.SIMPLE.ordinal());
 		clients.add(member);
-		member = createMember("Vasiliy", "Чапаев", Gender.MALE, UserType.MEMBER, "vasiliy", "123");
+		member = createMember("Света", "Левинская", Gender.FEMALE, UserType.MEMBER, "Svetlana", "123");
 		member.setId(20004);
+		member.setLevel(MemberStatus.PLATINUM.ordinal());
+		member.setLevel(MemberStatus.GOLD.ordinal());
 		clients.add(member);
 		member = createMember("Моше", "Цибулински", Gender.MALE, UserType.PARTNER, "moshe", "123");
 		member.setId(20004);
+		member.setLevel(MemberStatus.GOLD.ordinal());
 		clients.add(member);
 	}
 
