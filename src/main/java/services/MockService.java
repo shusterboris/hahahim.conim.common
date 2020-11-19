@@ -579,7 +579,7 @@ public class MockService {
 		    if (i==3)  {
 		    	ac.setMeasure(new CatItem((long) 800+i, "Measure", "шт", "RU"));
 		    } else {
-		     ac.setMeasure(new CatItem((long) 800+i, "Measure", "кг", "RU"));
+		    	ac.setMeasure(new CatItem((long) 800+i, "Measure", "кг", "RU"));
 		    } 
 		    if (i % 2 == 0) {
 			    ac.setWinner("Бердычевские пончики");
@@ -615,19 +615,6 @@ public class MockService {
 		partners.add(partner);
 	}
 	
-	public MockService() {
-		createGoodsCategory();
-		createRegions();
-		createMeasures();
-		createSettlments();
-		createStaff();
-		createMembers();
-		createProposals();
-		createActions();
-		createPartner();
-		
-	}
-	
 	public List<CatItem> getAllCategories(String language){
 		if (language == null)
 			language = UserSettings.getChoosenLanguage();
@@ -640,6 +627,19 @@ public class MockService {
 		return items;
 
 	}
-	
+
+	public MockService() {
+		createGoodsCategory();
+		createRegions();
+		createMeasures();
+		createSettlments();
+		createStaff();
+		createMembers();
+		createProposals();
+		createActions();
+		createPartner();
+		
+	}
+		
 
 }

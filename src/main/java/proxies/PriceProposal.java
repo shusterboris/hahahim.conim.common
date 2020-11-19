@@ -2,13 +2,15 @@ package proxies;
 
 import java.io.Serializable;
 
+import entities.enums.PriceProposalType;
+
 public class PriceProposal extends BasicEntity  implements Serializable{
 	private static final long serialVersionUID = 7882895218501386694L;
 	private Long memberId;
 	private Long proposalId;
 	private Float quantity;
 	private Float price;
-	private int proposalType;
+	private int proposalType = PriceProposalType.PARTNERS.ordinal();
 
 	public Long getMemberId() {
 		return memberId;
@@ -48,6 +50,24 @@ public class PriceProposal extends BasicEntity  implements Serializable{
 
 	public void setProposalType(int proposalType) {
 		this.proposalType = proposalType;
+	}
+
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PriceProposal other = (PriceProposal) obj;
+		if (price == null) {
+			if (other.price != null)
+				return false;
+		} else if (!price.equals(other.price))
+			return false;
+		return true;
 	}
 
 	@Override
