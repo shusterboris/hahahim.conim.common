@@ -2,6 +2,7 @@ package services;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +34,7 @@ public class MockService {
 	List<CatItem> measures = new ArrayList<>();
 	List<Proposal> actions = new ArrayList<>();
 	List<BusinessPartner> partners = new ArrayList<>();
+	List<PriceProposal> intents = new ArrayList<>();
 	private Random random = new Random();
 	private BusinessPartner partner;
 
@@ -579,6 +581,8 @@ public class MockService {
 		    cats.add(getCatByValue("Продукты питания", "RU"));
 		    cats.add(foodcat[i]);
 		    Proposal ac = createProposal(id, name, cats, telavivReg, author, prices[i], dueDate);
+			if (i > 1)
+				ac.setStatus("ProposalStatus.ACCEPTED");
 		    ac.setLastPrice((float) (prices[i]*0.6));
 		    ac.setPriceProposals(variants);
 		    ac.setStores(stores);
@@ -632,6 +636,45 @@ public class MockService {
 		});
 		return items;
 
+	}
+	
+	private PriceProposal getPriceProposalById(long id) {
+		return intents.stream()
+				.filter(intent -> intent.getId() ==id)
+				.findFirst().orElse(null);
+	}
+	
+	public List<PriceProposal> getMembersPriceIntents(Long proposalId, Long memberId){
+		List<PriceProposal> res = intents.stream()
+			.filter(intent -> intent.getProposalId().equals(proposalId) && intent.getMemberId().equals(memberId))
+			.collect(Collectors.toList());
+		if (res.isEmpty())
+			return new ArrayList<PriceProposal>();
+		res.sort(Collections.reverseOrder( (a, b) -> a.getPrice().compareTo(b.getPrice())));
+		return res;
+	}
+	
+	public void saveMemberPriceIntent(PriceProposal intent) {
+		if (intent.getId() == 0) {
+			id++;
+			intent.setId(id);
+			intents.add(intent);
+		}else {
+			PriceProposal found = getPriceProposalById(intent.getId());
+			if (found != null) {
+				intents.remove(found);
+				intents.add(intent);
+			}else {
+				intents.add(intent);
+			}
+		}
+	}
+	
+	public String saveMemberPriceIntents(List<PriceProposal> intents) {
+		for(PriceProposal intent : intents) {
+			saveMemberPriceIntent(intent);	
+		}
+		return "";
 	}
 
 	public MockService() {
