@@ -678,6 +678,30 @@ public class MockService {
 		return "";
 	}
 
+	private void createIntents() {
+		PriceProposal pp = new PriceProposal();
+		pp.setMemberId((long) 10097);
+		pp.setPrice((float) 300);
+		pp.setProposalId((long) 104);
+		pp.setProposalType(1);
+		pp.setQuantity((float) 3);
+		saveMemberPriceIntent(pp);
+		pp = new PriceProposal();
+		pp.setMemberId((long) 10097);
+		pp.setPrice((float) 250);
+		pp.setProposalId((long) 104);
+		pp.setProposalType(1);
+		pp.setQuantity((float) 5);
+		saveMemberPriceIntent(pp);
+		pp = new PriceProposal();
+		pp.setMemberId((long) 10097);
+		pp.setPrice((float) 200);
+		pp.setProposalId((long) 104);
+		pp.setProposalType(1);
+		pp.setQuantity((float) 8);
+		saveMemberPriceIntent(pp);
+	}
+	
 	public MockService() {
 		createGoodsCategory();
 		createRegions();
@@ -688,7 +712,7 @@ public class MockService {
 		createProposals();
 		createActions();
 		createPartner();
-		
+		createIntents();
 	}
 		
 
