@@ -586,6 +586,7 @@ public class MockService {
 		    ac.setLastPrice((float) (prices[i]*0.6));
 		    ac.setPriceProposals(variants);
 		    ac.setStores(stores);
+		    ac.setThreshold((float) 100);
 		    if (i==3)  {
 		    	ac.setMeasure(new CatItem((long) 800+i, "Measure", "шт", "RU"));
 		    } else {

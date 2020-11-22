@@ -17,6 +17,7 @@ public class Proposal extends BasicEntity implements Serializable{
 	private Float lastPrice;
 	private LocalDate dueDate;
 	private CatItem measure;
+	private Float threshold;
 	private String status = ProposalStatus.INIT.getMessageKey(); // �� ������ TenderStatus
 	private List<String> photos;
 	private LocalDate publicationDate;
@@ -224,6 +225,14 @@ public class Proposal extends BasicEntity implements Serializable{
 		this.priceProposals = priceProposals;
 	}
 
+
+	public Float getThreshold() {
+		return threshold;
+	}
+
+	public void setThreshold(Float threshold) {
+		this.threshold = threshold;
+	}
 
 	@Override
 	public String toString() {
