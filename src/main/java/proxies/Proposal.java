@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-import entities.CatItem;
-import entities.enums.ProposalStatus;
+import enums.ProposalStatus;
 
 public class Proposal extends BasicEntity implements Serializable{
 	private static final long serialVersionUID = -8117381935020236594L;
@@ -14,7 +13,7 @@ public class Proposal extends BasicEntity implements Serializable{
 	private CatItem region;
 	private Member initiator;
 	private Float price = (float) 0.0;
-	private Float lastPrice;
+	private Float lastPrice = (float) 0.0;
 	private LocalDate dueDate;
 	private CatItem measure;
 	private Float threshold;

@@ -1,12 +1,8 @@
-package entities;
+package proxies;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "catitems")
 public class CatItem extends BasicEntity implements Serializable{
 	private static final long serialVersionUID = -9215990634396625375L;
 	private String key;
@@ -70,8 +66,9 @@ public class CatItem extends BasicEntity implements Serializable{
 		this.sortOrder = sortOrder;
 	}
 
-	public CatItem(String key, String language, Long parentId, String value, Integer sortOrder) {
-		super();
+	public CatItem(Long id, String key, String language, Long parentId, String value, Integer sortOrder) {
+		this.id = id;
+		this.parentId = parentId;
 		this.key = key;
 		this.language = language;
 		this.parentId = parentId;
@@ -79,16 +76,6 @@ public class CatItem extends BasicEntity implements Serializable{
 		this.sortOrder = sortOrder;
 	}
 
-	public CatItem(Long id, String key, String language, Long parentId, String value, Integer sortOrder) {
-		this(key, language, parentId, value, sortOrder);
-		this.id = id;
-		this.parentId = parentId;
-	}
-
-	public CatItem(Long id, String key, String value, String language) {
-		this(key, language, (long) 0, value, 1000);
-		this.id = id;
-	}
 
 	@Override
 	public String toString() {

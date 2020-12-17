@@ -1,9 +1,10 @@
 package proxies;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BusinessPartner extends Store{
+public class BusinessPartner extends Store implements Serializable{
  	private static final long serialVersionUID = -7523924559237866260L;
 	private String name;
     private String fullName;
@@ -43,8 +44,8 @@ public class BusinessPartner extends Store{
 		this.stores = stores;
 	}
 	
-	public BusinessPartner(String name, Address address, Long headQuatersId) {
-		super(name, address, headQuatersId);
+	public BusinessPartner(Long id, String name, Address address, Long headQuatersId) {
+		super(id, name, address, headQuatersId);
 		this.headQuatersId = (long) 0;
 	}
 

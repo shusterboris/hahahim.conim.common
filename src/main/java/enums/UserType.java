@@ -1,4 +1,4 @@
-package entities.enums;
+package enums;
 
 public enum UserType {
 	MEMBER, PARTNER, MODERATOR, SUPERVISOR, STACKHOLDER;

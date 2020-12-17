@@ -1,7 +1,12 @@
-package proxies;
+package entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "addresses")
 public class Store extends BasicEntity implements Serializable{
 	private static final long serialVersionUID = 2624926622636823053L;
 	protected String name;

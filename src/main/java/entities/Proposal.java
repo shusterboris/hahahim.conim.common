@@ -3,14 +3,19 @@ package entities;
 import java.time.LocalDate;
 import java.util.List;
 
-import entities.enums.ProposalStatus;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import enums.ProposalStatus;
 
 /**
- * Тенедерное предложение (предложение на совместную закупку)
+ * Тендерное предложение (предложение на совместную закупку)
  * 
  * @author Одиссей
  *
  */
+@Entity
+@Table(name = "actions")
 public class Proposal extends BasicEntity {
 	private String name;
 	private List<CatItem> categories;

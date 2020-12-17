@@ -1,8 +1,9 @@
 package proxies;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Member extends Person {
+public class Member extends Person implements Serializable{
 	private static final long serialVersionUID = 627950708658994487L;
 	private Integer level; //member level
 	private List<String> regions;

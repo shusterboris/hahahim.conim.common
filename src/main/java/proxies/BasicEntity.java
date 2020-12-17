@@ -1,20 +1,14 @@
 package proxies;
 
-import java.io.Serializable;
+public class BasicEntity {
+	protected Long id;
 
-public abstract class BasicEntity implements Serializable{
-	private static final long serialVersionUID = -1247459189884826799L;
-	protected long id;
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
-
-
-
 }

@@ -1,4 +1,4 @@
-package entities.enums;
+package enums;
 
 public enum ClientStatus {
 	POTENTIAL, ACTIVE, FROZEN, SUSPENDED, ARCHIVE;

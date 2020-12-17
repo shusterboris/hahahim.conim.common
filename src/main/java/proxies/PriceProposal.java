@@ -1,12 +1,20 @@
 package proxies;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
 
-import entities.enums.PriceProposalType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+import enums.PriceProposalType;
+
+@Entity
+@Table(name = "priceproposals")
 public class PriceProposal extends BasicEntity  implements Serializable{
 	private static final long serialVersionUID = 7882895218501386694L;
 	private Long memberId;
+	private Integer priceLevel;
 	private Long proposalId;
 	private Float quantity;
 	private Float price;
@@ -53,6 +61,14 @@ public class PriceProposal extends BasicEntity  implements Serializable{
 	}
 
 	
+	public Integer getPriceLevel() {
+		return priceLevel;
+	}
+
+	public void setPriceLevel(Integer priceLevel) {
+		this.priceLevel = priceLevel;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -72,6 +88,14 @@ public class PriceProposal extends BasicEntity  implements Serializable{
 
 	@Override
 	public String toString() {
-		return this.price.toString().concat(" for ").concat(this.quantity.toString());
+		return this.price.toString().concat(", цена: ").concat(this.quantity.toString());
+	}
+	
+	public static void sort(List<PriceProposal> lst) {
+		lst.sort(Collections.reverseOrder(
+				(a, b) -> a.getPrice().compareTo(b.getPrice())
+				));
+		for(int i=0; i < lst.size(); i++)
+			lst.get(i).setPriceLevel(i);
 	}
 }

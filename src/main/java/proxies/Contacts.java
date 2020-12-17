@@ -1,9 +1,13 @@
 package proxies;
+
+import java.io.Serializable;
+
 // used only for BusinessPartner
-public class Contacts {
-  private String firstName;
-  private String lastName;
-  private String phone;
+public class Contacts extends BasicEntity implements Serializable{
+	private static final long serialVersionUID = 5998300011263073371L;
+	private String firstName;
+	private String lastName;
+	private String phone;
   
   
 public String getFirstName() {

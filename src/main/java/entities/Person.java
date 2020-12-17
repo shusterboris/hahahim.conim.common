@@ -1,23 +1,29 @@
 package entities;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-import entities.enums.ClientStatus;
-import entities.enums.UserType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-public class Person extends BasicEntity {
+import enums.ClientStatus;
+import enums.UserType;
+
+@Entity
+@Table(name = "persons")
+public class Person extends BasicEntity implements Serializable{
+	private static final long serialVersionUID = -2772623296089653648L;
 	private String lastName;
 	private String firstName;
 	private Integer gender;
 	private LocalDate birthday;
 	private String nick;
-	private String login;
-	private String password;
 	private String phone;
 	private String email;
 	private String tag;
 	private String note;
-	private ClientStatus status = ClientStatus.POTENTIAL;
+    private Long userId;
+    private ClientStatus status = ClientStatus.POTENTIAL;
 	private UserType userType = UserType.MEMBER;
 
 	public String getLastName() {
@@ -60,21 +66,6 @@ public class Person extends BasicEntity {
 		this.nick = nick;
 	}
 
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	public String getPhone() {
 		return phone;
@@ -108,14 +99,6 @@ public class Person extends BasicEntity {
 		this.note = note;
 	}
 
-	public ClientStatus getStatus() {
-		return status;
-	}
-
-	public void setStatus(ClientStatus status) {
-		this.status = status;
-	}
-
 	public UserType getUserType() {
 		return userType;
 	}
@@ -127,4 +110,21 @@ public class Person extends BasicEntity {
 	public String toString() {
 		return getLastName().concat(" ").concat(getFirstName());
 	}
+
+	public ClientStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(ClientStatus status) {
+		this.status = status;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
 }

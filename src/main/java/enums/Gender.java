@@ -1,7 +1,7 @@
-package entities.enums;
+package enums;
 
-public enum SuggestionType {
-	TENDER, ACTION;
+public enum Gender {
+	FEMALE, MALE, UNSIGNED;
 
 	public String getMessageKey() {
 		return getClass().getSimpleName() + "." + name();
