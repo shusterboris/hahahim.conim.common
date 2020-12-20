@@ -18,6 +18,7 @@ public class Person extends BasicEntity  implements Serializable{
 	private String tag;
 	private String note;
     private Long userId;
+    private String login;
     private ClientStatus status = ClientStatus.POTENTIAL;
 	private UserType userType = UserType.MEMBER;
 
@@ -120,6 +121,14 @@ public class Person extends BasicEntity  implements Serializable{
 
 	public void setUserId(Long userId) {
 		this.userId = userId;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 }
