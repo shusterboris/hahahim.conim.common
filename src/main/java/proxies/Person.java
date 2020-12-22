@@ -6,8 +6,19 @@ import java.time.LocalDate;
 import enums.ClientStatus;
 import enums.UserType;
 
-public class Person extends BasicEntity  implements Serializable{
+public class Person   implements Serializable{
 	private static final long serialVersionUID = -2772623296089653648L;
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	
+
+	private long id;
 	private String lastName;
 	private String firstName;
 	private Integer gender;
@@ -17,8 +28,9 @@ public class Person extends BasicEntity  implements Serializable{
 	private String email;
 	private String tag;
 	private String note;
-    private Long userId;
+    private String password;
     private String login;
+    private String promo;
     private ClientStatus status = ClientStatus.POTENTIAL;
 	private UserType userType = UserType.MEMBER;
 
@@ -115,12 +127,20 @@ public class Person extends BasicEntity  implements Serializable{
 		this.status = status;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getPromo() {
+		return promo;
+	}
+
+	public void setPromo(String promo) {
+		this.promo = promo;
 	}
 
 	public String getLogin() {

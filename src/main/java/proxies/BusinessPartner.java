@@ -11,8 +11,20 @@ public class BusinessPartner extends Store implements Serializable{
     private String phone;
     private List<Contacts> contacts;
     private List<Store> stores;
- 
-    public String getName() {
+    private Double raiting;  //оценка поставщика
+    public Double getRaiting() {
+		return raiting;
+	}
+	public void setRaiting(Double raiting) {
+		this.raiting = raiting;
+	}
+	public void setContacts(List<Contacts> contacts) {
+		this.contacts = contacts;
+	}
+	public void setStores(List<Store> stores) {
+		this.stores = stores;
+	}
+	public String getName() {
 		return name;
 	}
 	public void setName(String name) {

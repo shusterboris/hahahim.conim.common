@@ -6,22 +6,24 @@ import java.util.List;
 
 import enums.ProposalStatus;
 
-public class Proposal extends BasicEntity implements Serializable{
+public class Proposal  implements Serializable{
 	private static final long serialVersionUID = -8117381935020236594L;
+	private long id;
 	private String name;
-	private List<CatItem> categories;
+	private List<CatItem> categories;//категория товара
 	private CatItem region;
 	private Member initiator;
 	private Float price = (float) 0.0;
 	private Float lastPrice = (float) 0.0;
 	private LocalDate dueDate;
 	private CatItem measure;
-	private Float threshold;
+	private Float threshold; //минимальная закупка
+	private Float thresholdmax;//верхний предел закупки
 	private String status = ProposalStatus.INIT.getMessageKey(); // �� ������ TenderStatus
 	private List<String> photos;
 	private LocalDate publicationDate;
-	private String winner;
-	private Long winnerId;
+	private String supplier;
+	private Long supplierId;
 	private Float total = (float) 0.0;
 	private Integer countMembers = 0;
 	private LocalDate dateOfSailStarting;
@@ -29,7 +31,39 @@ public class Proposal extends BasicEntity implements Serializable{
 	private String description;
     private List<PriceProposal> priceProposals;
     private List<Address> stores;
-    
+    private List<CatItem> tags;//отметки
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Float getThresholdmax() {
+		return thresholdmax;
+	}
+
+	public void setThresholdmax(Float thresholdmax) {
+		this.thresholdmax = thresholdmax;
+	}
+
+	public String getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(String supplier) {
+		this.supplier = supplier;
+	}
+
+	public Long getSupplierId() {
+		return supplierId;
+	}
+
+	public void setSupplierId(Long supplierId) {
+		this.supplierId = supplierId;
+	}
+
 	public List<Address> getStores() {
 		return stores;
 	}
@@ -110,13 +144,7 @@ public class Proposal extends BasicEntity implements Serializable{
 		this.status = status;
 	}
 
-	public String getWinner() {
-		return winner;
-	}
-
-	public void setWinner(String winner) {
-		this.winner = winner;
-	}
+	
 
 	public LocalDate getDateOfSailStarting() {
 		return dateOfSailStarting;
@@ -168,13 +196,7 @@ public class Proposal extends BasicEntity implements Serializable{
 		this.publicationDate = publicationDate;
 	}
 
-	public Long getWinnerId() {
-		return winnerId;
-	}
-
-	public void setWinnerId(Long winnerId) {
-		this.winnerId = winnerId;
-	}
+	
 
 	public Float getTotal() {
 		return total;
