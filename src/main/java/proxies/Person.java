@@ -8,16 +8,6 @@ import enums.UserType;
 
 public class Person   implements Serializable{
 	private static final long serialVersionUID = -2772623296089653648L;
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	
-
 	private long id;
 	private String lastName;
 	private String firstName;
@@ -31,7 +21,7 @@ public class Person   implements Serializable{
     private String password;
     private String login;
     private String promo;
-    private ClientStatus status = ClientStatus.POTENTIAL;
+    private ClientStatus status = ClientStatus.NEW;
 	private UserType userType = UserType.MEMBER;
 
 	public String getLastName() {
@@ -149,6 +139,14 @@ public class Person   implements Serializable{
 
 	public void setLogin(String login) {
 		this.login = login;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }
