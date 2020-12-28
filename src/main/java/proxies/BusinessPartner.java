@@ -9,7 +9,8 @@ public class BusinessPartner extends Store implements Serializable{
 	private String name;
     private String fullName;
     private String phone;
-    private List<Contacts> contacts;
+    private boolean supplier = false;
+    private List<Contact> contacts;
     private List<Store> stores;
     private Double raiting;  //оценка поставщика
     public Double getRaiting() {
@@ -18,7 +19,7 @@ public class BusinessPartner extends Store implements Serializable{
 	public void setRaiting(Double raiting) {
 		this.raiting = raiting;
 	}
-	public void setContacts(List<Contacts> contacts) {
+	public void setContacts(List<Contact> contacts) {
 		this.contacts = contacts;
 	}
 	public void setStores(List<Store> stores) {
@@ -42,10 +43,10 @@ public class BusinessPartner extends Store implements Serializable{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public List<Contacts> getContacts() {
+	public List<Contact> getContacts() {
 		return contacts;
 	}
-	public void setContacts(ArrayList<Contacts> contacts) {
+	public void setContacts(ArrayList<Contact> contacts) {
 		this.contacts = contacts;
 	}
 	public List<Store> getStores() {
@@ -61,6 +62,12 @@ public class BusinessPartner extends Store implements Serializable{
 		this.headQuatersId = (long) 0;
 	}
 
+	public boolean isSupplier() {
+		return supplier;
+	}
+	public void setSupplier(boolean supplier) {
+		this.supplier = supplier;
+	}
 	public String toString() {
 		return getName().concat(", ").concat(getAddress().getSettlement());
 	}

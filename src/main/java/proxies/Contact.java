@@ -3,7 +3,7 @@ package proxies;
 import java.io.Serializable;
 
 // used only for BusinessPartner
-public class Contacts extends BasicEntity implements Serializable{
+public class Contact extends BasicEntity implements Serializable{
 	private static final long serialVersionUID = 5998300011263073371L;
 	private String firstName;
 	private String lastName;
@@ -40,7 +40,7 @@ public void setPhone(String phone) {
 }
 
 
-public Contacts(String firstName, String name, String phone) {
+public Contact(String firstName, String name, String phone) {
 	this.firstName = firstName;
 	this.lastName = name;
 	this.phone = phone;
