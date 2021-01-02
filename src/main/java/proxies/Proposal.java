@@ -13,8 +13,9 @@ public class Proposal  implements Serializable{
 	private List<CatItem> categories;//категория товара
 	private CatItem region;
 	private Member initiator;
-	private Float price = (float) 0.0;
-	private Float lastPrice = (float) 0.0;
+	private float price = (float) 0.0; //розничная цена
+	private float lastPrice = (float) 0.0; //достигнутая клубная цена
+	private float nextPrice = (float) 0.0; //следующая клубная цена
 	private LocalDate dueDate;
 	private CatItem measure;
 	private Float threshold; //минимальная закупка
