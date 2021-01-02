@@ -13,12 +13,13 @@ public class Proposal  implements Serializable{
 	private List<CatItem> categories;//категория товара
 	private CatItem region;
 	private Member initiator;
-	private Float price = (float) 0.0;
-	private Float lastPrice = (float) 0.0;
+	private float price = (float) 0.0; //розничная цена
+	private float lastPrice = (float) 0.0; //достигнутая клубная цена
+	private float nextPrice = (float) 0.0; //следующая клубная цена
 	private LocalDate dueDate;
 	private CatItem measure;
-	private Float threshold; //минимальная закупка
-	private Float thresholdmax;//верхний предел закупки
+	private float threshold = (float) 0; //минимальная закупка
+	private float thresholdmax = (float) 0;//верхний предел закупки
 	private String status = ProposalStatus.INIT.getMessageKey(); // �� ������ TenderStatus
 	private List<String> photos;
 	private LocalDate publicationDate;
@@ -32,6 +33,7 @@ public class Proposal  implements Serializable{
     private List<PriceProposal> priceProposals;
     private List<Address> stores;
     private List<CatItem> tags;//отметки
+    
 	public long getId() {
 		return id;
 	}
@@ -170,6 +172,14 @@ public class Proposal  implements Serializable{
 
 	public void setLastPrice(Float lastPrice) {
 		this.lastPrice = lastPrice;
+	}
+
+	public Float getNextPrice() {
+		return nextPrice;
+	}
+
+	public void setNextPrice(Float nextPrice) {
+		this.nextPrice = nextPrice;
 	}
 
 	public CatItem getMeasure() {
