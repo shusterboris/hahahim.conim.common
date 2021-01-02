@@ -32,6 +32,7 @@ public class Proposal  implements Serializable{
     private List<PriceProposal> priceProposals;
     private List<Address> stores;
     private List<CatItem> tags;//отметки
+    private Long bundle; //общая закупка
 	public long getId() {
 		return id;
 	}
@@ -258,6 +259,14 @@ public class Proposal  implements Serializable{
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	public Long getBundle() {
+		return bundle;
+	}
+
+	public void setBundle(Long bundle) {
+		this.bundle = bundle;
 	}
 
 }
