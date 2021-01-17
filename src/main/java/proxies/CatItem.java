@@ -7,8 +7,17 @@ public class CatItem extends BasicEntity implements Serializable{
 	private static final long serialVersionUID = -9215990634396625375L;
 	private String key;
 	private String language;
-	private Long parentId = (long) 0;
+	private String parentKey ;
 	private String value;
+	public String getParentKey() {
+		return parentKey;
+	}
+
+	public void setParentKey(String parentKey) {
+		this.parentKey = parentKey;
+	}
+
+
 	/**
 	 * if I need special sort order, not by alphabet
 	 */
@@ -42,13 +51,7 @@ public class CatItem extends BasicEntity implements Serializable{
 		this.language = language;
 	}
 
-	public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
+	
 
 	public String getValue() {
 		return value;
@@ -74,9 +77,9 @@ public class CatItem extends BasicEntity implements Serializable{
 		this.sortOrder = 1000;
 	}
 
-	public CatItem(Long id, String key, String language, String value, Integer sortOrder, Long parentId) {
+	public CatItem(Long id, String key, String language, String value, Integer sortOrder, String parentKey) {
 		this(id, key, language, value);
-		this.parentId = parentId;
+		this.parentKey = parentKey;
 		this.sortOrder = sortOrder;
 	}
 

@@ -9,17 +9,26 @@ import javax.persistence.Table;
 
 import enums.PriceProposalType;
 
-@Entity
-@Table(name = "priceproposals")
-public class PriceProposal extends BasicEntity  implements Serializable{
+public class PriceProposal  implements Serializable{
 	private static final long serialVersionUID = 7882895218501386694L;
+	private Long Id;
+	
+
 	private Long memberId;
-	private Integer priceLevel;
+	private Integer priceLevel;//123
 	private Long proposalId;
 	private Float quantity;
 	private Float price;
 	private int proposalType = PriceProposalType.PARTNERS.ordinal();
 
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+	
 	public Long getMemberId() {
 		return memberId;
 	}

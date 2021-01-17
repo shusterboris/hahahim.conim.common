@@ -10,14 +10,14 @@ public class Proposal  implements Serializable{
 	private static final long serialVersionUID = -8117381935020236594L;
 	private long id;
 	private String name;
-	private List<CatItem> categories;//категория товара
-	private CatItem region;
+	private String category;//категория товара
+	private String region;
 	private Member initiator;
 	private float price = (float) 0.0; //розничная цена
 	private float lastPrice = (float) 0.0; //достигнутая клубная цена
 	private float nextPrice = (float) 0.0; //следующая клубная цена
 	private LocalDate dueDate;
-	private CatItem measure;
+	private String measure;
 	private Float threshold; //минимальная закупка
 	private Float thresholdmax;//верхний предел закупки
 	private String status = ProposalStatus.INIT.getMessageKey(); // �� ������ TenderStatus
@@ -34,6 +34,56 @@ public class Proposal  implements Serializable{
     private List<Address> stores;
     private List<CatItem> tags;//отметки
     private Long bundle; //общая закупка
+	
+    
+    public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public float getNextPrice() {
+		return nextPrice;
+	}
+
+	public void setNextPrice(float nextPrice) {
+		this.nextPrice = nextPrice;
+	}
+
+	public String getMeasure() {
+		return measure;
+	}
+
+	public void setMeasure(String measure) {
+		this.measure = measure;
+	}
+
+	public List<CatItem> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<CatItem> tags) {
+		this.tags = tags;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public void setLastPrice(float lastPrice) {
+		this.lastPrice = lastPrice;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -74,18 +124,7 @@ public class Proposal  implements Serializable{
 		this.stores = stores;
 	}
 
-	public List<CatItem> getCategories() {
-		return categories;
-	}
-
-	public CatItem getRegion() {
-		return region;
-	}
-
-	public void setRegion(CatItem region) {
-		this.region = region;
-	}
-
+	
 	public Float getPrice() {
 		return price;
 	}
@@ -102,18 +141,7 @@ public class Proposal  implements Serializable{
 		this.priceProposals = proposals;
 	}
 
-	public void setCategories(List<CatItem> categories) {
-		this.categories = categories;
-	}
-
-	public CatItem getRegions() {
-		return region;
-	}
-
-	public void setRegions(CatItem regions) {
-		this.region = regions;
-	}
-
+	
 	public Person getAuthor() {
 		return initiator;
 	}
@@ -174,13 +202,7 @@ public class Proposal  implements Serializable{
 		this.lastPrice = lastPrice;
 	}
 
-	public CatItem getMeasure() {
-		return measure;
-	}
-
-	public void setMeasure(CatItem measure) {
-		this.measure = measure;
-	}
+	
 
 	public List<String> getPhotos() {
 		return photos;

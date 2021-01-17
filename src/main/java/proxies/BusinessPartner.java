@@ -64,6 +64,7 @@ public BusinessPartner(Long id, String name, Address address, Long headQuatersId
 	this.headQuatersId = (long) 0;
 }
 
+
 public boolean isSupplier() {
 	return supplier;
 }
