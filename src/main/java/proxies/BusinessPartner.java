@@ -3,9 +3,6 @@ package proxies;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
 public class BusinessPartner extends Store implements Serializable{
 private static final long serialVersionUID = -7523924559237866260L;
 private String name;
@@ -72,6 +69,9 @@ public void setSupplier(boolean supplier) {
 	this.supplier = supplier;
 }
 public String toString() {
-	return getName().concat(", ").concat(getAddress().getSettlement());
+	StringBuilder sb = new StringBuilder();
+	sb.append(getName() !=null ? getName() : getFullName());
+	sb.append(getAddress() != null ? getAddress().getSettlement() : "");
+	return sb.toString();
 }
 }
