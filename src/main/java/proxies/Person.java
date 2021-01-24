@@ -8,21 +8,21 @@ import enums.UserType;
 
 public class Person   implements Serializable{
 	private static final long serialVersionUID = -2772623296089653648L;
-	private long id;
-	private String lastName;
-	private String firstName;
-	private Integer gender;
-	private LocalDate birthday;
-	private String nick;
-	private String phone;
-	private String email;
-	private String tag;
-	private String note;
-    private String password;
-    private String login;
-    private String promo;
-    private ClientStatus status = ClientStatus.NEW;
-	private UserType userType = UserType.MEMBER;
+	protected long id;
+	protected String lastName;
+	protected String firstName;
+	protected Integer gender;
+	protected LocalDate birthday;
+	protected String nick;
+	protected String phone;
+	protected String email;
+	protected String tag;
+	protected String note;
+	protected String password;
+	protected String login;
+	protected String promo;
+	protected ClientStatus status = ClientStatus.NEW;
+	protected UserType userType = UserType.MEMBER;
 
 	public String getLastName() {
 		return lastName;

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Column;
+
 import enums.ProposalStatus;
 
 public class Proposal  implements Serializable{
@@ -16,19 +18,20 @@ public class Proposal  implements Serializable{
 	private float price = (float) 0.0; //розничная цена
 	private float lastPrice = (float) 0.0; //достигнутая клубная цена
 	private float nextPrice = (float) 0.0; //следующая клубная цена
-	private LocalDate dueDate;
-	private String measure;
+	private LocalDate dueDate; //дата окончания сбора заявок
+	private String measure; //единица измерения
 	private Float threshold; //минимальная закупка
 	private Float thresholdmax;//верхний предел закупки
-	private String status = ProposalStatus.INIT.getMessageKey(); // �� ������ TenderStatus
-	private List<String> photos;
-	private LocalDate publicationDate;
+	private String status = ProposalStatus.INIT.getMessageKey(); 
+	private List<String> photos; //имена файлов
+	private LocalDate publicationDate;//дата публикации (утверждения модератором)
 	private String supplier;
 	private Long supplierId;
 	private Float total = (float) 0.0;
 	private Integer countMembers = 0;
-	private LocalDate dateOfSailStarting;
-	private LocalDate closeDate;
+	private LocalDate dateOfSailStarting; //дата начала продаж
+	private LocalDate closeDate; //дата окончания акции
+	@Column(length = 500)
 	private String description;
     private List<PriceProposal> priceProposals;
     private List<Address> stores;
