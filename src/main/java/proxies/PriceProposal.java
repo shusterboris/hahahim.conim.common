@@ -3,15 +3,11 @@ package proxies;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 import enums.PriceProposalType;
 
 public class PriceProposal  implements Serializable{
 	private static final long serialVersionUID = 7882895218501386694L;
-	private Long Id;
+	private long Id;
 	private Long memberId;
 	private Integer priceLevel;//1, 2, 3
 	private Long proposalId;
@@ -19,11 +15,11 @@ public class PriceProposal  implements Serializable{
 	private Float price;
 	private int proposalType = PriceProposalType.PARTNERS.ordinal();
 
-	public Long getId() {
+	public long getId() {
 		return Id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		Id = id;
 	}
 	
