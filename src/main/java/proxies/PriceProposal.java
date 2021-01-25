@@ -12,10 +12,8 @@ import enums.PriceProposalType;
 public class PriceProposal  implements Serializable{
 	private static final long serialVersionUID = 7882895218501386694L;
 	private Long Id;
-	
-
 	private Long memberId;
-	private Integer priceLevel;//123
+	private Integer priceLevel;//1, 2, 3
 	private Long proposalId;
 	private Float quantity;
 	private Float price;
@@ -97,7 +95,10 @@ public class PriceProposal  implements Serializable{
 
 	@Override
 	public String toString() {
-		return this.price.toString().concat(", цена: ").concat(this.quantity.toString());
+		if (price == 0 || quantity == 0)
+			return "";
+		else
+			return price.toString().concat(", кол-во: ").concat(quantity.toString());
 	}
 	
 	public static void sort(List<PriceProposal> lst) {
