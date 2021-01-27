@@ -16,7 +16,7 @@ public class Person   implements Serializable{
 	protected String nick;
 	protected String phone;
 	protected String email;
-	protected String tag;
+	protected Float rate = (float) 5;
 	protected String note;
 	protected String password;
 	protected String login;
@@ -81,12 +81,13 @@ public class Person   implements Serializable{
 		this.email = email;
 	}
 
-	public String getTag() {
-		return tag;
+
+	public Float getRate() {
+		return rate;
 	}
 
-	public void setTag(String tag) {
-		this.tag = tag;
+	public void setRate(Float rate) {
+		this.rate = rate;
 	}
 
 	public String getNote() {
