@@ -3,17 +3,27 @@ package proxies;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
+
 import enums.PriceProposalType;
 
 public class PriceProposal  implements Serializable{
 	private static final long serialVersionUID = 7882895218501386694L;
 	private long Id;
 	private Long memberId;
-	private Integer priceLevel;//1, 2, 3
+	private Integer priceLevel;// 1, 2, 3
 	private Long proposalId;
 	private Float quantity;
 	private Float price;
 	private int proposalType = PriceProposalType.PARTNERS.ordinal();
+	private String delivery;
+
+	public String getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(String delivery) {
+		this.delivery = delivery;
+	}
 
 	public long getId() {
 		return Id;

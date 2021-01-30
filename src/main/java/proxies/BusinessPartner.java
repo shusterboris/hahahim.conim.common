@@ -3,8 +3,10 @@ package proxies;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-public class BusinessPartner extends Store implements Serializable{
+
+public class BusinessPartner implements Serializable {
 private static final long serialVersionUID = -7523924559237866260L;
+	private long id;
 private String name;
 private String fullName;
 private String phone;
@@ -56,10 +58,7 @@ public void setStores(ArrayList<Store> stores) {
 	this.stores = stores;
 }
 
-public BusinessPartner(Long id, String name, Address address, Long headQuatersId) {
-	super(id, name, address, headQuatersId);
-	this.headQuatersId = (long) 0;
-}
+
 
 
 public boolean isSupplier() {
@@ -68,10 +67,29 @@ public boolean isSupplier() {
 public void setSupplier(boolean supplier) {
 	this.supplier = supplier;
 }
-public String toString() {
-	StringBuilder sb = new StringBuilder();
-	sb.append(getName() !=null ? getName() : getFullName());
-	sb.append(getAddress() != null ? getAddress().getSettlement() : "");
-	return sb.toString();
-}
+
+	/*
+	 * public BusinessPartner(Long id, String name, Address address, Long
+	 * headQuatersId) { super(id, name, address, headQuatersId); this.headQuatersId
+	 * = (long) 0; }
+	 */
+	/*
+	 * public String toString() { StringBuilder sb = new StringBuilder();
+	 * sb.append(getName() !=null ? getName() : getFullName());
+	 * sb.append(getAddress() != null ? getAddress().getSettlement() : ""); return
+	 * sb.toString(); }
+	 */
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(getFullName());
+		return sb.toString();
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 }

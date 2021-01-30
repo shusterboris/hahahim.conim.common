@@ -36,7 +36,7 @@ public class Proposal  implements Serializable{
     private List<PriceProposal> priceProposals;
     private List<Address> stores;
     private List<CatItem> tags;//отметки
-    private Long bundle; //общая закупка
+	private Long bundle; // общая закупка purchase
 	
     
     public String getCategory() {

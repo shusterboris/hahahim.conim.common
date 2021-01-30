@@ -2,7 +2,7 @@ package proxies;
 
 import java.io.Serializable;
 
-public class Store extends BasicEntity implements Serializable{
+public class Store implements Serializable {
 	private static final long serialVersionUID = 2624926622636823053L;
 	protected String name;
 	protected Address address;
@@ -34,7 +34,7 @@ public class Store extends BasicEntity implements Serializable{
 
 
 	public Store(Long id, String name, Address address, Long headQuatersId) {
-		this.id = id;
+		// this.id = id;
 		this.name = name;
 		this.address = address;
 		this.headQuatersId = headQuatersId;
