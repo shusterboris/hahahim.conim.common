@@ -2,10 +2,20 @@ package proxies;
 
 import java.io.Serializable;
 
-public class Store implements Serializable {
+public class Store extends Address implements Serializable {
 	private static final long serialVersionUID = 2624926622636823053L;
+	protected Long id;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	protected String name;
-	protected Address address;
+
 	protected Long headQuatersId = (long) 0;
 
 	public String getName() {
@@ -16,13 +26,6 @@ public class Store implements Serializable {
 		this.name = name;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 
 	public Long getHeadQuatersId() {
 		return headQuatersId;
@@ -33,25 +36,24 @@ public class Store implements Serializable {
 	}
 
 
-	public Store(Long id, String name, Address address, Long headQuatersId) {
-		// this.id = id;
+	public Store(Long id, String name, Long headQuatersId) {
+		this.id = id;
 		this.name = name;
-		this.address = address;
 		this.headQuatersId = headQuatersId;
 	}
 
 	public String toStringShort() {
 		if (!"".equals(name))
-			return name.concat(". ").concat(getAddress().getSettlement());
+			return name.concat(". ").concat(getSettlement());
 		else
-			return getAddress().getSettlement().concat(",").concat(getAddress().getStreetAddress());
+			return getSettlement().concat(",").concat(getStreetAddress());
 	}
 	
 	public String toString() {
 		if (!"".equals(name))
-			return name.concat(". ").concat(getAddress().getSettlement()).concat(",").concat(getAddress().getStreetAddress());
+			return name.concat(". ").concat(getSettlement()).concat(",").concat(getStreetAddress());
 		else
-			return getAddress().getSettlement().concat(",").concat(getAddress().getStreetAddress());
+			return getSettlement().concat(",").concat(getStreetAddress());
 		
 	}
 }

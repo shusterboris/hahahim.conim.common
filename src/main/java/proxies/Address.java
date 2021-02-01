@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class Address implements Serializable {
 	private static final long serialVersionUID = -6276857316780429416L;
-	private String region;  //from catItem
-	private String settlement;  //from catItem
-	private String streetAddress;
-	private Float latitude;
-	private Float altitude;
+	protected String region; // from catItem
+	protected String settlement; // from catItem
+	protected String streetAddress;
+	protected Float latitude;
+	protected Float altitude;
 
 	public String getRegion() {
 		return region;
