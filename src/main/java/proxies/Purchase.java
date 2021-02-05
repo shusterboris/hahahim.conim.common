@@ -8,6 +8,8 @@ import enums.ProposalStatus;
 public class Purchase implements Serializable {
 
 	private static final long serialVersionUID = 683915625637469600L;
+	private Long id;
+
 	private String name;
 	private ProposalStatus state;
 	private Long initiator;
@@ -17,6 +19,21 @@ public class Purchase implements Serializable {
 		return name;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public ProposalStatus getState() {
+		return state;
+	}
+
+	public void setState(ProposalStatus state) {
+		this.state = state;
+	}
 	public Float getSumOrders() {
 		return sumOrders;
 	}
