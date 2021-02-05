@@ -52,7 +52,23 @@ public class Address implements Serializable {
 
 	@Override
 	public String toString() {
-		return region + ", " + settlement + ", " + streetAddress;
+		StringBuffer b = new StringBuffer();
+		if (region != null && !region.isEmpty())
+			b.append(region);
+		if (settlement != null && !settlement.isEmpty())
+			if (b.length() > 0)
+				b.append(", ").append(settlement);
+			else
+				b.append(settlement);
+		if (streetAddress != null && !streetAddress.isEmpty())
+			if (b.length() > 0)
+				b.append(", ").append(streetAddress);
+			else
+				b.append(streetAddress);
+		if (b.length() > 0)
+			return b.toString();
+		else
+			return "";
 	}
 
 }

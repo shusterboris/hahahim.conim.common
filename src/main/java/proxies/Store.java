@@ -26,7 +26,6 @@ public class Store extends Address implements Serializable {
 		this.name = name;
 	}
 
-
 	public Long getHeadQuatersId() {
 		return headQuatersId;
 	}
@@ -34,7 +33,6 @@ public class Store extends Address implements Serializable {
 	public void setHeadQuatersId(Long headQuatersId) {
 		this.headQuatersId = headQuatersId;
 	}
-
 
 	public Store(Long id, String name, Long headQuatersId) {
 		this.id = id;
@@ -44,16 +42,16 @@ public class Store extends Address implements Serializable {
 
 	public String toStringShort() {
 		if (!"".equals(name))
-			return name.concat(". ").concat(getSettlement());
+			return name.concat(". ").concat(super.toString());
 		else
-			return getSettlement().concat(",").concat(getStreetAddress());
+			return super.toString();
 	}
-	
+
 	public String toString() {
 		if (!"".equals(name))
 			return name.concat(". ").concat(getSettlement()).concat(",").concat(getStreetAddress());
 		else
 			return getSettlement().concat(",").concat(getStreetAddress());
-		
+
 	}
 }
