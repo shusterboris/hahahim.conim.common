@@ -9,6 +9,7 @@ public class Member extends Person implements Serializable {
 	private List<String> regions;
 	private Long partnerId;
 	private String analytics;
+	private String authorities;
 
 	public String toString() {
 		StringBuilder b;
@@ -57,6 +58,14 @@ public class Member extends Person implements Serializable {
 
 	public void setRegions(List<String> regions) {
 		this.regions = regions;
+	}
+
+	public String getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(String authorities) {
+		this.authorities = authorities;
 	}
 
 }
