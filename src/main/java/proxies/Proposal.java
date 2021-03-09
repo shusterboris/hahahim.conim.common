@@ -14,7 +14,7 @@ public class Proposal  implements Serializable{
 	private String name;
 	private String category;//категория товара
 	private String region;
-	private Member initiator;
+	private Long initiator;
 	private float price = (float) 0.0; //розничная цена
 	private float lastPrice = (float) 0.0; //достигнутая клубная цена
 	private float nextPrice = (float) 0.0; //следующая клубная цена
@@ -37,9 +37,17 @@ public class Proposal  implements Serializable{
     private List<Address> stores;
     private List<CatItem> tags;//отметки
 	private Long bundle; // общая закупка purchase
-	
+	private Boolean intOnly;
     
-    public String getCategory() {
+	public Boolean getIntOnly() {
+		return intOnly;
+	}
+
+	public void setIntOnly(Boolean intOnly) {
+		this.intOnly = intOnly;
+	}
+
+	public String getCategory() {
 		return category;
 	}
 
@@ -145,13 +153,6 @@ public class Proposal  implements Serializable{
 	}
 
 	
-	public Person getAuthor() {
-		return initiator;
-	}
-
-	public void setAuthor(Member author) {
-		this.initiator = author;
-	}
 
 	public Float getMaxPrice() {
 		return price;
@@ -257,12 +258,12 @@ public class Proposal  implements Serializable{
 		this.description = description;
 	}
 
-	public Person getInitiator() {
+	public Long getInitiator() {
 		return initiator;
 	}
 
-	public void setInitiator(Member author) {
-		this.initiator = author;
+	public void setInitiator(Long initiator) {
+		this.initiator = initiator;
 	}
 
 	public List<PriceProposal> getPriceProposals() {

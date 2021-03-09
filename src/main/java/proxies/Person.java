@@ -2,6 +2,7 @@ package proxies;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 import enums.ClientStatus;
 import enums.UserType;
@@ -16,6 +17,7 @@ public class Person   implements Serializable{
 	protected String nick;
 	protected String phone;
 	protected String email;
+	protected String telegram;
 	protected Float rate = (float) 5;
 	protected String note;
 	protected String password;
@@ -23,9 +25,26 @@ public class Person   implements Serializable{
 	protected String promo;
 	protected ClientStatus status = ClientStatus.NEW;
 	protected UserType userType = UserType.MEMBER;
+	private List<Delivery> delivery;
+
+	public String getTelegram() {
+		return telegram;
+	}
+
+	public void setTelegram(String telegram) {
+		this.telegram = telegram;
+	}
 
 	public String getLastName() {
 		return lastName;
+	}
+
+	public List<Delivery> getDelivery() {
+		return delivery;
+	}
+
+	public void setDelivery(List<Delivery> delivery) {
+		this.delivery = delivery;
 	}
 
 	public void setLastName(String lastName) {
