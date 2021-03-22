@@ -14,6 +14,7 @@ public class BusinessPartner implements Serializable {
 	private List<Contact> contacts;
 	private List<Store> stores;
 	private Double raiting; // оценка поставщика
+	private String telegramId;
 
 	public Double getRaiting() {
 		return raiting;
@@ -87,5 +88,13 @@ public class BusinessPartner implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getTelegramId() {
+		return telegramId;
+	}
+
+	public void setTelegramId(String telegramId) {
+		this.telegramId = telegramId;
 	}
 }
