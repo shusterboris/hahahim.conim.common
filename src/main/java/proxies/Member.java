@@ -10,6 +10,24 @@ public class Member extends Person implements Serializable {
 	private Long partnerId;
 	private String analytics;
 	private String authorities;
+	private String delivery1;
+	private String delivery2;
+
+	public String getDelivery1() {
+		return delivery1;
+	}
+
+	public void setDelivery1(String delivery1) {
+		this.delivery1 = delivery1;
+	}
+
+	public String getDelivery2() {
+		return delivery2;
+	}
+
+	public void setDelivery2(String delivery2) {
+		this.delivery2 = delivery2;
+	}
 
 	public String toString() {
 		StringBuilder b;
