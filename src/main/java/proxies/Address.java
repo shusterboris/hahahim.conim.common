@@ -8,6 +8,7 @@ public class Address implements Serializable {
 	protected String region; // from catItem
 	protected String settlement; // from catItem
 	protected String streetAddress;
+	protected String name; // name of the store or description of point of sailing
 	protected Float latitude;
 	protected Float altitude;
 	protected Long parentId;
@@ -66,6 +67,14 @@ public class Address implements Serializable {
 
 	public void setParentId(Long parentId) {
 		this.parentId = parentId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
