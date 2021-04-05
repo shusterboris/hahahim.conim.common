@@ -24,8 +24,8 @@ public class OrderFromTelegram {
 	private long id;
 	private long bundle;
 	private float quantity;
-	private float cost;
-	private float price;
+	private float cost = 0;
+	private float price = 0;
 
 	public float getPrice() {
 		return price;
