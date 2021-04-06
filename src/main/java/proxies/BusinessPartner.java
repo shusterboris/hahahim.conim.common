@@ -1,7 +1,6 @@
 package proxies;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BusinessPartner implements Serializable {
@@ -11,10 +10,10 @@ public class BusinessPartner implements Serializable {
 	private String fullName;
 	private String phone;
 	private boolean supplier = false;
-	private List<Contact> contacts;
-	private List<Store> stores;
 	private Double raiting; // оценка поставщика
 	private String telegramId;
+	private List<Contact> contacts;
+	private List<Store> stores;
 
 	public Double getRaiting() {
 		return raiting;
@@ -22,14 +21,6 @@ public class BusinessPartner implements Serializable {
 
 	public void setRaiting(Double raiting) {
 		this.raiting = raiting;
-	}
-
-	public void setContacts(List<Contact> contacts) {
-		this.contacts = contacts;
-	}
-
-	public void setStores(List<Store> stores) {
-		this.stores = stores;
 	}
 
 	public String getName() {
@@ -54,18 +45,6 @@ public class BusinessPartner implements Serializable {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public List<Contact> getContacts() {
-		return contacts;
-	}
-
-	public void setContacts(ArrayList<Contact> contacts) {
-		this.contacts = contacts;
-	}
-
-	public List<Store> getStores() {
-		return stores;
 	}
 
 	public boolean isSupplier() {
@@ -96,5 +75,21 @@ public class BusinessPartner implements Serializable {
 
 	public void setTelegramId(String telegramId) {
 		this.telegramId = telegramId;
+	}
+
+	public List<Contact> getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(List<Contact> contacts) {
+		this.contacts = contacts;
+	}
+
+	public List<Store> getStores() {
+		return stores;
+	}
+
+	public void setStores(List<Store> stores) {
+		this.stores = stores;
 	}
 }

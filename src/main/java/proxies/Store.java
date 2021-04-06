@@ -4,27 +4,7 @@ import java.io.Serializable;
 
 public class Store extends Address implements Serializable {
 	private static final long serialVersionUID = 2624926622636823053L;
-	protected Long id;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	protected String name;
-
 	protected Long headQuatersId = (long) 0;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public Long getHeadQuatersId() {
 		return headQuatersId;
