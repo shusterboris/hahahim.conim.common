@@ -8,37 +8,38 @@ import javax.persistence.Column;
 
 import enums.ProposalStatus;
 
-public class Proposal  implements Serializable{
+public class Proposal implements Serializable {
 	private static final long serialVersionUID = -8117381935020236594L;
 	private long id;
 	private String name;
-	private String category;//категория товара
+	private String category;// категория товара
 	private String region;
 	private Long initiator;
-	private float price = (float) 0.0; //розничная цена
-	private float lastPrice = (float) 0.0; //достигнутая клубная цена
-	private float nextPrice = (float) 0.0; //следующая клубная цена
-	private LocalDate dueDate; //дата окончания сбора заявок
-	private String measure; //единица измерения
-	private Float threshold; //минимальная закупка
-	private Float thresholdmax;//верхний предел закупки
-	private String status = ProposalStatus.INIT.getMessageKey(); 
-	private List<String> photos; //имена файлов
-	private LocalDate publicationDate;//дата публикации (утверждения модератором)
+	private float price = (float) 0.0; // розничная цена
+	private float lastPrice = (float) 0.0; // достигнутая клубная цена
+	private float nextPrice = (float) 0.0; // следующая клубная цена
+	private LocalDate dueDate; // дата окончания сбора заявок
+	private String measure; // единица измерения
+	private Float threshold; // минимальная закупка
+	private Float thresholdmax;// верхний предел закупки
+	private String status = ProposalStatus.INIT.getMessageKey();
+	private List<String> photos; // имена файлов
+	private LocalDate publicationDate;// дата публикации (утверждения модератором)
 	private String supplier;
 	private Long supplierId;
 	private Float total = (float) 0.0;
+	private Float quantity = (float) 0.0;
 	private Integer countMembers = 0;
-	private LocalDate dateOfSailStarting; //дата начала продаж
-	private LocalDate closeDate; //дата окончания акции
+	private LocalDate dateOfSailStarting; // дата начала продаж
+	private LocalDate closeDate; // дата окончания акции
 	@Column(length = 500)
 	private String description;
-    private List<PriceProposal> priceProposals;
-    private List<Address> stores;
-    private List<CatItem> tags;//отметки
+	private List<PriceProposal> priceProposals;
+	private List<Address> stores;
+	private List<CatItem> tags;// отметки
 	private Long bundle; // общая закупка purchase
 	private Boolean intOnly;
-    
+
 	public Boolean getIntOnly() {
 		return intOnly;
 	}
@@ -135,7 +136,6 @@ public class Proposal  implements Serializable{
 		this.stores = stores;
 	}
 
-	
 	public Float getPrice() {
 		return price;
 	}
@@ -151,8 +151,6 @@ public class Proposal  implements Serializable{
 	public void setProposals(List<PriceProposal> proposals) {
 		this.priceProposals = proposals;
 	}
-
-	
 
 	public Float getMaxPrice() {
 		return price;
@@ -178,8 +176,6 @@ public class Proposal  implements Serializable{
 		this.status = status;
 	}
 
-	
-
 	public LocalDate getDateOfSailStarting() {
 		return dateOfSailStarting;
 	}
@@ -196,8 +192,6 @@ public class Proposal  implements Serializable{
 		this.name = name;
 	}
 
-	
-
 	public Float getLastPrice() {
 		return lastPrice;
 	}
@@ -205,8 +199,6 @@ public class Proposal  implements Serializable{
 	public void setLastPrice(Float lastPrice) {
 		this.lastPrice = lastPrice;
 	}
-
-	
 
 	public List<String> getPhotos() {
 		return photos;
@@ -223,8 +215,6 @@ public class Proposal  implements Serializable{
 	public void setPublicationDate(LocalDate publicationDate) {
 		this.publicationDate = publicationDate;
 	}
-
-	
 
 	public Float getTotal() {
 		return total;
@@ -274,7 +264,6 @@ public class Proposal  implements Serializable{
 		this.priceProposals = priceProposals;
 	}
 
-
 	public Float getThreshold() {
 		return threshold;
 	}
@@ -294,6 +283,14 @@ public class Proposal  implements Serializable{
 
 	public void setBundle(Long bundle) {
 		this.bundle = bundle;
+	}
+
+	public Float getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Float quantity) {
+		this.quantity = quantity;
 	}
 
 }
