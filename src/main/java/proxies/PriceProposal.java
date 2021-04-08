@@ -6,16 +6,18 @@ import java.util.List;
 
 import enums.PriceProposalType;
 
-public class PriceProposal  implements Serializable{
+public class PriceProposal implements Serializable {
 	private static final long serialVersionUID = 7882895218501386694L;
 	private long Id;
 	private Long memberId;
-	private Integer priceLevel;// 1, 2, 3
+	private Integer priceLevel = 1;// 1, 2, 3
 	private Long proposalId;
 	private Float quantity;
 	private Float price;
 	private int proposalType = PriceProposalType.PARTNERS.ordinal();
 	private String delivery;
+	private String orderId;
+	private boolean sent = false;
 
 	public String getDelivery() {
 		return delivery;
@@ -32,7 +34,7 @@ public class PriceProposal  implements Serializable{
 	public void setId(long id) {
 		Id = id;
 	}
-	
+
 	public Long getMemberId() {
 		return memberId;
 	}
@@ -73,13 +75,28 @@ public class PriceProposal  implements Serializable{
 		this.proposalType = proposalType;
 	}
 
-	
 	public Integer getPriceLevel() {
 		return priceLevel;
 	}
 
 	public void setPriceLevel(Integer priceLevel) {
 		this.priceLevel = priceLevel;
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+	public boolean isSent() {
+		return sent;
+	}
+
+	public void setSent(boolean sent) {
+		this.sent = sent;
 	}
 
 	@Override
@@ -106,12 +123,10 @@ public class PriceProposal  implements Serializable{
 		else
 			return price.toString().concat(", кол-во: ").concat(quantity.toString());
 	}
-	
+
 	public static void sort(List<PriceProposal> lst) {
-		lst.sort(Collections.reverseOrder(
-				(a, b) -> a.getPrice().compareTo(b.getPrice())
-				));
-		for(int i=0; i < lst.size(); i++)
+		lst.sort(Collections.reverseOrder((a, b) -> a.getPrice().compareTo(b.getPrice())));
+		for (int i = 0; i < lst.size(); i++)
 			lst.get(i).setPriceLevel(i);
 	}
 }
