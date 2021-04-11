@@ -8,7 +8,7 @@ import enums.PriceProposalType;
 
 public class PriceProposal implements Serializable {
 	private static final long serialVersionUID = 7882895218501386694L;
-	private long Id;
+	private Long id;
 	private Long memberId;
 	private Integer priceLevel = 1;// 1, 2, 3
 	private Long proposalId;
@@ -27,12 +27,12 @@ public class PriceProposal implements Serializable {
 		this.delivery = delivery;
 	}
 
-	public long getId() {
-		return Id;
+	public Long getId() {
+		return id;
 	}
 
-	public void setId(long id) {
-		Id = id;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Long getMemberId() {
