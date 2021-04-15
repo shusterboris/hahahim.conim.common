@@ -3,7 +3,7 @@ package proxies;
 import java.io.Serializable;
 import java.util.Set;
 
-public class OrdersFromTelegram implements Serializable{
+public class OrdersFromTelegram implements Serializable {
 
 	public class MemberT {
 		private Set<String> delivery;
@@ -90,8 +90,10 @@ public class OrdersFromTelegram implements Serializable{
 		private String preferableAddress;
 
 	}
+
 	private static final long serialVersionUID = 5543794728421273537L;
 	private Set<OrderFromTelegram> items;
+	private String orderId;
 
 	public Set<OrderFromTelegram> getItems() {
 		return items;
@@ -108,5 +110,14 @@ public class OrdersFromTelegram implements Serializable{
 	public void setMember(MemberT member) {
 		this.member = member;
 	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
 	private MemberT member;
 }
