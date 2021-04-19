@@ -33,8 +33,17 @@ public class ActionsSummaryInfo implements Serializable {
 		inst.setFirstName((String) obj[8]);
 		inst.setLastName((String) obj[9]);
 		inst.setPhone((String) obj[10]);
-		inst.setQuantity((Float) obj[5]);
-		inst.setPrice((Float) obj[6]);
+		if (obj.length > 14) {
+			// если результат запроса содержит дополнительные колонки - это количество и
+			// сумма по группе
+			Double dbl = (Double) obj[15];
+			inst.setQuantity(dbl.floatValue());
+			dbl = (Double) obj[16];
+			inst.setPrice(dbl.floatValue());
+		} else {// иначе берем цену и количество
+			inst.setQuantity((Float) obj[5]);
+			inst.setPrice((Float) obj[6]);
+		}
 		inst.setIntentId(parseObjToLong(obj[11]));
 		inst.setMemberId(parseObjToLong(obj[12]));
 		inst.setProposalId(parseObjToLong(obj[13]));
