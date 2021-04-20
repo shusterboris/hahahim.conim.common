@@ -33,7 +33,7 @@ public class ActionsSummaryInfo implements Serializable {
 		inst.setFirstName((String) obj[8]);
 		inst.setLastName((String) obj[9]);
 		inst.setPhone((String) obj[10]);
-		if (obj.length > 14) {
+		if (obj.length > 15) {
 			// если результат запроса содержит дополнительные колонки - это количество и
 			// сумма по группе
 			Double dbl = (Double) obj[15];
