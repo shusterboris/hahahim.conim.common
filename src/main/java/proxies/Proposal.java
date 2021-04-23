@@ -29,6 +29,7 @@ public class Proposal implements Serializable {
 	private Long supplierId;
 	private Float total = (float) 0.0;
 	private Float quantity = (float) 0.0;
+	private Float totalQuantity = (float) 0.0;
 	private Integer countMembers = 0;
 	private LocalDate dateOfSailStarting; // дата начала продаж
 	private LocalDate closeDate; // дата окончания акции
@@ -39,6 +40,14 @@ public class Proposal implements Serializable {
 	private List<CatItem> tags;// отметки
 	private Long bundle; // общая закупка purchase
 	private Boolean intOnly;
+
+	public Float getTotalQuantity() {
+		return totalQuantity;
+	}
+
+	public void setTotalQuantity(Float totalQuantity) {
+		this.totalQuantity = totalQuantity;
+	}
 
 	public Boolean getIntOnly() {
 		return intOnly;
