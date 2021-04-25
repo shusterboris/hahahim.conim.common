@@ -39,7 +39,7 @@ public class Proposal implements Serializable {
 	private List<Address> stores;
 	private List<CatItem> tags;// отметки
 	private Long bundle; // общая закупка purchase
-	private Boolean intOnly;
+	private Boolean intOnly = false;
 
 	public Float getTotalQuantity() {
 		return totalQuantity;

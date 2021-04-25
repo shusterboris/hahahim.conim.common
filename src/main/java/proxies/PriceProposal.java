@@ -18,6 +18,8 @@ public class PriceProposal implements Serializable {
 	private String delivery;
 	private String orderId;
 	private boolean sent = false;
+	private Float ampount = (float) 0;
+	private Integer status = 0;
 
 	public String getDelivery() {
 		return delivery;
@@ -97,6 +99,22 @@ public class PriceProposal implements Serializable {
 
 	public void setSent(boolean sent) {
 		this.sent = sent;
+	}
+
+	public Float getAmpount() {
+		return ampount;
+	}
+
+	public void setAmpount(Float ampount) {
+		this.ampount = ampount;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 
 	@Override
