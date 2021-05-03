@@ -21,6 +21,7 @@ public class ActionsSummaryInfo implements Serializable {
 	private Long memberId = (long) 0;
 	private Long proposalId = (long) 0;
 	private Long supplierId = (long) 0;
+	private int status = 0;
 
 	public static ActionsSummaryInfo getInstanse(Object[] obj) {
 		ActionsSummaryInfo inst = new ActionsSummaryInfo();
@@ -33,12 +34,13 @@ public class ActionsSummaryInfo implements Serializable {
 		inst.setFirstName((String) obj[8]);
 		inst.setLastName((String) obj[9]);
 		inst.setPhone((String) obj[10]);
-		if (obj.length > 15) {
+		int len = obj.length;
+		if (len > 16) {
 			// если результат запроса содержит дополнительные колонки - это количество и
 			// сумма по группе
-			Double dbl = (Double) obj[15];
+			Double dbl = (Double) obj[16];
 			inst.setQuantity(dbl.floatValue());
-			dbl = (Double) obj[16];
+			dbl = (Double) obj[17];
 			inst.setPrice(dbl.floatValue());
 		} else {// иначе берем цену и количество
 			inst.setQuantity((Float) obj[5]);
@@ -48,6 +50,8 @@ public class ActionsSummaryInfo implements Serializable {
 		inst.setMemberId(parseObjToLong(obj[12]));
 		inst.setProposalId(parseObjToLong(obj[13]));
 		inst.setSupplierId(parseObjToLong(obj[14]));
+		Long ppStatus = parseObjToLong(obj[len - 1]);
+		inst.setStatus(ppStatus.intValue());
 		return inst;
 	}
 
@@ -61,8 +65,12 @@ public class ActionsSummaryInfo implements Serializable {
 	}
 
 	public String mainInfo() {
-		String money = String.format("%.2f ₪ x %.2f  %s = %.2f ₪, ", price, quantity, measure, price * quantity);
+		String money = String.format("%.2f ₪ x %.2f  %s = %.2f ₪", price, quantity, measure, price * quantity);
 		return money.concat(getMemberName()).concat(" ").concat(deliveryAddress != null ? deliveryAddress : "");
+	}
+
+	public String PriceInfo() {
+		return String.format("%.2f ₪ x %.2f  %s = %.2f ₪, ", price, quantity, measure, price * quantity);
 	}
 
 	public String toString() {
@@ -171,6 +179,14 @@ public class ActionsSummaryInfo implements Serializable {
 
 	public void setIntentId(Long intentId) {
 		this.intentId = intentId;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 	public Long getMemberId() {
