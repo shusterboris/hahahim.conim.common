@@ -12,6 +12,7 @@ public class Address implements Serializable {
 	protected Float latitude;
 	protected Float altitude;
 	protected Long parentId;
+	protected boolean chosen = false;
 
 	public String getRegion() {
 		return region;
@@ -75,6 +76,14 @@ public class Address implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public boolean isChosen() {
+		return chosen;
+	}
+
+	public void setChosen(boolean chosen) {
+		this.chosen = chosen;
 	}
 
 	@Override
