@@ -22,6 +22,8 @@ public class ActionsSummaryInfo implements Serializable {
 	private Long proposalId = (long) 0;
 	private Long supplierId = (long) 0;
 	private int status = 0;
+	private Float amount = (float) 0.0;
+	private String orderId;
 
 	public static ActionsSummaryInfo getInstanse(Object[] obj) {
 		ActionsSummaryInfo inst = new ActionsSummaryInfo();
@@ -35,28 +37,35 @@ public class ActionsSummaryInfo implements Serializable {
 		inst.setLastName((String) obj[9]);
 		inst.setPhone((String) obj[10]);
 		int len = obj.length;
-		if (len > 16) {
+		if (len > 18) {
 			// если результат запроса содержит дополнительные колонки - это количество и
 			// сумма по группе
-			Double dbl = (Double) obj[16];
+			Double dbl = (Double) obj[17];
 			inst.setQuantity(dbl.floatValue());
-			dbl = (Double) obj[17];
+			dbl = (Double) obj[18];
 			inst.setPrice(dbl.floatValue());
 		} else {// иначе берем цену и количество
 			inst.setQuantity((Float) obj[5]);
 			inst.setPrice((Float) obj[6]);
+			if ((Float) obj[17] > 0)
+				inst.setAmount((Float) obj[17]);
+			else
+				inst.setAmount(inst.getQuantity() * inst.getPrice());
 		}
 		inst.setIntentId(parseObjToLong(obj[11]));
 		inst.setMemberId(parseObjToLong(obj[12]));
 		inst.setProposalId(parseObjToLong(obj[13]));
 		inst.setSupplierId(parseObjToLong(obj[14]));
-		Long ppStatus = parseObjToLong(obj[len - 1]);
+		inst.setOrderId((obj[16] == null) ? ((String) obj[16]) : "");
+		Long ppStatus = parseObjToLong(obj[15]);
 		inst.setStatus(ppStatus.intValue());
 		return inst;
 	}
 
 	private static Long parseObjToLong(Object obj) {
 		try {
+			if (obj == null)
+				return (long) 0;
 			BigInteger bi = (BigInteger) obj;
 			return bi.longValue();
 		} catch (Exception e) {
@@ -211,6 +220,22 @@ public class ActionsSummaryInfo implements Serializable {
 
 	public void setSupplierId(Long supplierId) {
 		this.supplierId = supplierId;
+	}
+
+	public Float getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Float amount) {
+		this.amount = amount;
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
 
 }
