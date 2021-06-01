@@ -2,6 +2,7 @@ package proxies;
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.time.LocalDate;
 
 public class ActionsSummaryInfo implements Serializable {
 	private static final long serialVersionUID = -7874307930056569383L;
@@ -24,6 +25,7 @@ public class ActionsSummaryInfo implements Serializable {
 	private int status = 0;
 	private Float amount = (float) 0.0;
 	private String orderId;
+	private LocalDate orderDate;
 
 	public static ActionsSummaryInfo getInstanse(Object[] obj) {
 		ActionsSummaryInfo inst = new ActionsSummaryInfo();
@@ -37,13 +39,14 @@ public class ActionsSummaryInfo implements Serializable {
 		inst.setLastName((String) obj[9]);
 		inst.setPhone((String) obj[10]);
 		int len = obj.length;
-		if (len > 18) {
+		if (len > 19) {
 			// если результат запроса содержит дополнительные колонки - это количество и
 			// сумма по группе
-			Double dbl = (Double) obj[17];
+			Double dbl = (Double) obj[19];
 			inst.setQuantity(dbl.floatValue());
-			dbl = (Double) obj[18];
+			dbl = (Double) obj[20];
 			inst.setPrice(dbl.floatValue());
+			inst.setAmount(inst.getQuantity() * inst.getPrice());
 		} else {// иначе берем цену и количество
 			inst.setQuantity((Float) obj[5]);
 			inst.setPrice((Float) obj[6]);
@@ -56,9 +59,13 @@ public class ActionsSummaryInfo implements Serializable {
 		inst.setMemberId(parseObjToLong(obj[12]));
 		inst.setProposalId(parseObjToLong(obj[13]));
 		inst.setSupplierId(parseObjToLong(obj[14]));
-		inst.setOrderId((obj[16] == null) ? ((String) obj[16]) : "");
+		inst.setOrderId((obj[16] != null) ? ((String) obj[16]) : "");
 		Long ppStatus = parseObjToLong(obj[15]);
 		inst.setStatus(ppStatus.intValue());
+		if (obj[18] != null) {
+			java.sql.Date created = (java.sql.Date) obj[18];
+			inst.setOrderDate(created.toLocalDate());
+		}
 		return inst;
 	}
 
@@ -236,6 +243,14 @@ public class ActionsSummaryInfo implements Serializable {
 
 	public void setOrderId(String orderId) {
 		this.orderId = orderId;
+	}
+
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
 	}
 
 }

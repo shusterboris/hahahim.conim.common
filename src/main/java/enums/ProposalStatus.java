@@ -20,7 +20,7 @@ public enum ProposalStatus {
 			if (key.equals(status.getMessageKey()))
 				return status.ordinal();
 		}
-		return 0;
+		return -1;
 	}
 
 }
